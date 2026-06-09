@@ -115,17 +115,17 @@
         </div>
       </div>
       <div class="samples reveal">
-        <a href="assets/sample-music.png" target="_blank" rel="noopener" aria-label="Open full-size sample — music studio newsletter">
+        <button type="button" class="samples__btn" data-src="assets/sample-music.png" data-alt="Full newsletter — music studio" aria-label="View full music-studio newsletter">
           <img src="assets/sample-music.png" alt="Sample newsletter for a music studio" loading="lazy" />
-        </a>
-        <a href="assets/sample-swim.png" target="_blank" rel="noopener" aria-label="Open full-size sample — swim studio newsletter">
+        </button>
+        <button type="button" class="samples__btn" data-src="assets/sample-swim.png" data-alt="Full newsletter — swim studio" aria-label="View full swim-studio newsletter">
           <img src="assets/sample-swim.png" alt="Sample newsletter for a swim studio" loading="lazy" />
-        </a>
-        <a href="assets/sample-art.png" target="_blank" rel="noopener" aria-label="Open full-size sample — art studio newsletter">
+        </button>
+        <button type="button" class="samples__btn" data-src="assets/sample-art.png" data-alt="Full newsletter — art studio" aria-label="View full art-studio newsletter">
           <img src="assets/sample-art.png" alt="Sample newsletter for an art studio" loading="lazy" />
-        </a>
+        </button>
       </div>
-      <p class="samples__caption">Sample newsletters created for music, swim and art studios.</p>
+      <p class="samples__caption">Tap a sample to view the full newsletter. Created for music, swim and art studios.</p>
     </div>
   </section>
 
@@ -207,11 +207,11 @@
     </div>
   </footer>
 
-  <!-- ===== LIGHTBOX (fullscreen sample-newsletter viewer) ===== -->
-  <dialog class="lightbox" id="lightbox" aria-label="Newsletter preview">
-    <button type="button" class="lightbox__close" aria-label="Close viewer">&times;</button>
+  <!-- ===== LIGHTBOX (fullscreen sample-newsletter viewer; scrollable) ===== -->
+  <dialog class="lightbox" id="lightbox" aria-label="Full sample newsletter">
+    <button type="button" class="lightbox__close" aria-label="Close newsletter viewer">×</button>
     <div class="lightbox__scroll">
-      <img class="lightbox__img" src="" alt="" />
+      <img class="lightbox__img" alt="" />
     </div>
   </dialog>
 

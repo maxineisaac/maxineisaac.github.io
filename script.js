@@ -139,32 +139,37 @@
     });
   }
 
-  // ----- Lightbox for sample newsletters (only newsletters.html has it) -----
+  // ----- Sample newsletter lightbox (scrollable full-image overlay) -----
   var lightbox = document.getElementById('lightbox');
   if (lightbox && typeof lightbox.showModal === 'function') {
     var lbImg = lightbox.querySelector('.lightbox__img');
     var lbClose = lightbox.querySelector('.lightbox__close');
     var lbScroll = lightbox.querySelector('.lightbox__scroll');
-    document.querySelectorAll('.samples a').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var src = a.getAttribute('href');
-        var alt = a.querySelector('img') ? a.querySelector('img').getAttribute('alt') : '';
+    var closeLB = function () { if (lightbox.open) lightbox.close(); };
+    document.querySelectorAll('.samples__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var src = btn.getAttribute('data-src');
+        var alt = btn.getAttribute('data-alt') || '';
+        if (!src || !lbImg) return;
         lbImg.setAttribute('src', src);
-        lbImg.setAttribute('alt', alt || 'Sample newsletter');
-        if (lbScroll) lbScroll.scrollTop = 0;
+        lbImg.setAttribute('alt', alt);
         lightbox.showModal();
         document.body.classList.add('lightbox-open');
+        if (lbScroll) lbScroll.scrollTop = 0;
       });
     });
-    var closeLb = function () { lightbox.close(); document.body.classList.remove('lightbox-open'); };
-    if (lbClose) lbClose.addEventListener('click', closeLb);
-    // Click outside the image (on the backdrop) to close
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox || e.target === lbScroll) closeLb();
+    if (lbClose) lbClose.addEventListener('click', closeLB);
+    // Click backdrop (outside scroll container or outside image inside scroll)
+    if (lbScroll) {
+      lbScroll.addEventListener('click', function (e) {
+        if (e.target === lbScroll) closeLB();
+      });
+    }
+    // Esc key auto-closes via <dialog>; sync body class
+    lightbox.addEventListener('close', function () {
+      document.body.classList.remove('lightbox-open');
+      if (lbImg) lbImg.setAttribute('src', '');
     });
-    // ESC handled natively by <dialog>, but ensure body class is cleared
-    lightbox.addEventListener('close', function () { document.body.classList.remove('lightbox-open'); });
   }
 
   // ----- Chip fade near footer -----
