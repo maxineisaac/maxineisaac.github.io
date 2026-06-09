@@ -139,6 +139,34 @@
     });
   }
 
+  // ----- Lightbox for sample newsletters (only newsletters.html has it) -----
+  var lightbox = document.getElementById('lightbox');
+  if (lightbox && typeof lightbox.showModal === 'function') {
+    var lbImg = lightbox.querySelector('.lightbox__img');
+    var lbClose = lightbox.querySelector('.lightbox__close');
+    var lbScroll = lightbox.querySelector('.lightbox__scroll');
+    document.querySelectorAll('.samples a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var src = a.getAttribute('href');
+        var alt = a.querySelector('img') ? a.querySelector('img').getAttribute('alt') : '';
+        lbImg.setAttribute('src', src);
+        lbImg.setAttribute('alt', alt || 'Sample newsletter');
+        if (lbScroll) lbScroll.scrollTop = 0;
+        lightbox.showModal();
+        document.body.classList.add('lightbox-open');
+      });
+    });
+    var closeLb = function () { lightbox.close(); document.body.classList.remove('lightbox-open'); };
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+    // Click outside the image (on the backdrop) to close
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox || e.target === lbScroll) closeLb();
+    });
+    // ESC handled natively by <dialog>, but ensure body class is cleared
+    lightbox.addEventListener('close', function () { document.body.classList.remove('lightbox-open'); });
+  }
+
   // ----- Chip fade near footer -----
   var footer = document.querySelector('.foot');
   if (footer && 'IntersectionObserver' in window) {
