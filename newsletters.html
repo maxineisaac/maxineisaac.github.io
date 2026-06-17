@@ -115,23 +115,23 @@
         </div>
       </div>
       <div class="samples reveal">
-        <a class="samples__card" href="assets/gallery-music.png" target="_blank" rel="noopener" aria-label="Open full music-studio newsletter">
+        <button type="button" class="samples__btn" data-src="assets/gallery-music.png" data-alt="Full newsletter — music studio" aria-label="View full music-studio newsletter">
           <img src="assets/gallery-music.png" alt="Sample newsletter for a music studio" loading="lazy" />
-        </a>
-        <a class="samples__card" href="assets/gallery-dance.png" target="_blank" rel="noopener" aria-label="Open full dance-studio newsletter">
+        </button>
+        <button type="button" class="samples__btn" data-src="assets/gallery-dance.png" data-alt="Full newsletter — dance studio" aria-label="View full dance-studio newsletter">
           <img src="assets/gallery-dance.png" alt="Sample newsletter for a dance studio" loading="lazy" />
-        </a>
-        <a class="samples__card" href="assets/gallery-swim.png" target="_blank" rel="noopener" aria-label="Open full swim-studio newsletter">
+        </button>
+        <button type="button" class="samples__btn" data-src="assets/gallery-swim.png" data-alt="Full newsletter — swim studio" aria-label="View full swim-studio newsletter">
           <img src="assets/gallery-swim.png" alt="Sample newsletter for a swim studio" loading="lazy" />
-        </a>
-        <a class="samples__card" href="assets/gallery-art.png" target="_blank" rel="noopener" aria-label="Open full art-studio newsletter">
+        </button>
+        <button type="button" class="samples__btn" data-src="assets/gallery-art.png" data-alt="Full newsletter — art studio" aria-label="View full art-studio newsletter">
           <img src="assets/gallery-art.png" alt="Sample newsletter for an art studio" loading="lazy" />
-        </a>
-        <a class="samples__card" href="assets/gallery-gym.png" target="_blank" rel="noopener" aria-label="Open full gymnastics-studio newsletter">
+        </button>
+        <button type="button" class="samples__btn" data-src="assets/gallery-gym.png" data-alt="Full newsletter — gymnastics studio" aria-label="View full gymnastics-studio newsletter">
           <img src="assets/gallery-gym.png" alt="Sample newsletter for a gymnastics studio" loading="lazy" />
-        </a>
+        </button>
       </div>
-      <p class="samples__caption">Sample newsletters across music, dance, swim, art and gymnastics studios.</p>
+      <p class="samples__caption">Tap any sample to view the full newsletter. Designed across music, dance, swim, art and gymnastics studios.</p>
     </div>
   </section>
 
@@ -212,6 +212,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== LIGHTBOX (fullscreen sample-newsletter viewer; scrollable) ===== -->
+  <dialog class="lightbox" id="lightbox" aria-label="Full sample newsletter">
+    <button type="button" class="lightbox__close" aria-label="Close newsletter viewer">×</button>
+    <div class="lightbox__scroll">
+      <img class="lightbox__img" alt="" />
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>

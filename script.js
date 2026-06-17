@@ -139,6 +139,37 @@
     });
   }
 
+  // ----- Sample newsletter lightbox (scrollable full-image overlay) -----
+  var lightbox = document.getElementById('lightbox');
+  if (lightbox && typeof lightbox.showModal === 'function') {
+    var lbImg = lightbox.querySelector('.lightbox__img');
+    var lbClose = lightbox.querySelector('.lightbox__close');
+    var lbScroll = lightbox.querySelector('.lightbox__scroll');
+    var closeLB = function () { if (lightbox.open) lightbox.close(); };
+    document.querySelectorAll('.samples__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var src = btn.getAttribute('data-src');
+        var alt = btn.getAttribute('data-alt') || '';
+        if (!src || !lbImg) return;
+        lbImg.setAttribute('src', src);
+        lbImg.setAttribute('alt', alt);
+        lightbox.showModal();
+        document.body.classList.add('lightbox-open');
+        if (lbScroll) lbScroll.scrollTop = 0;
+      });
+    });
+    if (lbClose) lbClose.addEventListener('click', closeLB);
+    if (lbScroll) {
+      lbScroll.addEventListener('click', function (e) {
+        if (e.target === lbScroll) closeLB();
+      });
+    }
+    lightbox.addEventListener('close', function () {
+      document.body.classList.remove('lightbox-open');
+      if (lbImg) lbImg.setAttribute('src', '');
+    });
+  }
+
   // ----- Chip fade near footer -----
   var footer = document.querySelector('.foot');
   if (footer && 'IntersectionObserver' in window) {
