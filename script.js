@@ -107,11 +107,17 @@
 
   // ----- Active nav link -----
   var path = window.location.pathname.split('/').pop() || 'index.html';
-  var isCase = ['uje', 'doki', 'nike', 'starbucks'].some(function (s) { return path.indexOf(s) === 0; });
+  var isCase = ['uje', 'doki', 'nike', 'starbucks', 'aikiforest'].some(function (s) { return path.indexOf(s) === 0; });
+  var isWritingArticle = path.indexOf('writing-') === 0;
   document.querySelectorAll('.nav__links a').forEach(function (a) {
     var target = (a.getAttribute('href') || '').split('/').pop();
-    if (target === path || (isCase && target === 'work.html')) a.setAttribute('aria-current', 'page');
-    else a.removeAttribute('aria-current');
+    if (target === path
+        || (isCase && target === 'work.html')
+        || (isWritingArticle && target === 'writing.html')) {
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
+    }
   });
 
   // ----- Year + live Singapore clock -----
