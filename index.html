@@ -113,6 +113,12 @@ a{color:inherit}
 .body-c{margin-top:26px;max-width:54ch;font-size:clamp(15px,1.5vw,18px);line-height:1.62;color:var(--ink-soft)}
 .cmp-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid var(--ink);border-radius:100px;padding:13px 22px;transition:background .3s,color .3s}
 .cmp-cta:hover{background:var(--ink);color:var(--paper)}
+.cmp-lead{margin-top:18px;font-weight:600;font-size:clamp(17px,2vw,24px);letter-spacing:-.01em;color:var(--ink)}
+.pir{margin-top:clamp(20px,3vw,32px);max-width:60ch}
+.pir .row{display:grid;grid-template-columns:clamp(78px,11vw,116px) 1fr;gap:clamp(14px,2vw,28px);align-items:baseline;padding:14px 0;border-top:1px solid var(--rule)}
+.pir .row .l{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.pir .row .t{font-size:clamp(16px,1.9vw,22px);font-weight:500;line-height:1.3;color:var(--ink)}
+@media(max-width:560px){.pir .row{grid-template-columns:1fr;gap:4px}}
 
 /* work index */
 /* selected work — table of contents */
@@ -478,7 +484,12 @@ a{color:inherit}
 <section class="sec tall" id="nike" data-nav="campaigns" data-title="Nike">
   <div class="head r"><span class="ln"></span><span class="lab">Campaign 01 — Nike · Storytelling · AI-assisted</span></div>
   <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">step into strength.</h2>
-  <p class="body-c r d2">A Gen Z mental-health concept for Nike — running as self-talk, not performance. Grounded in research, bound by ethical guardrails, built to survive scrutiny.</p>
+  <div class="cmp-lead r d2">A Gen Z mental-health concept.</div>
+  <div class="pir r d2">
+    <div class="row"><span class="l">Problem</span><span class="t">Gen Z distrusts brands that perform caring.</span></div>
+    <div class="row"><span class="l">Insight</span><span class="t">Authenticity beats image — 72% prioritise it.</span></div>
+    <div class="row"><span class="l">Result</span><span class="t">Running as self-talk, not performance.</span></div>
+  </div>
   <a class="cmp-cta r d2" href="nike.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Nike <em>(spec)</em></div></div>
@@ -492,7 +503,12 @@ a{color:inherit}
 <section class="sec tall" id="unionjack" data-nav="campaigns" data-title="Union Jack">
   <div class="head r"><span class="ln"></span><span class="lab">Campaign 02 — Union Jack Elevator · Brand repositioning</span></div>
   <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">lift the future.</h2>
-  <p class="body-c r d2">Repositioning a 30-year-old B2B lift company into a consumer-facing safety educator. Research with 72 residents and homeowners exposed the gap — and anchored a four-pillar campaign built on real fear, not features.</p>
+  <div class="cmp-lead r d2">A 30-year-old B2B lift company.</div>
+  <div class="pir r d2">
+    <div class="row"><span class="l">Problem</span><span class="t">People feared lifts — and didn't know the brand.</span></div>
+    <div class="row"><span class="l">Insight</span><span class="t">Safety anxiety sells harder than specs.</span></div>
+    <div class="row"><span class="l">Result</span><span class="t">A four-pillar campaign built on fear, not features.</span></div>
+  </div>
   <a class="cmp-cta r d2" href="uje.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Union Jack Elevator</div></div>
@@ -506,7 +522,12 @@ a{color:inherit}
 <section class="sec tall" id="aikiforest" data-nav="campaigns" data-title="Aikiforest">
   <div class="head r"><span class="ln"></span><span class="lab">Campaign 03 — Aikiforest Aikido · Live client</span></div>
   <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">three days off the screen.</h2>
-  <p class="body-c r d2">A full marketing redesign for a Singapore dojo — my longest-running client and the one project here that isn't a concept. Reframed around a parent-pain insight, with a local distribution playbook and a B2B schools deck. Earlier copy lifted 2024 sign-ups +10%.</p>
+  <div class="cmp-lead r d2">A Singapore dojo. No media budget.</div>
+  <div class="pir r d2">
+    <div class="row"><span class="l">Problem</span><span class="t">Aikido sold technique; parents weren't buying it.</span></div>
+    <div class="row"><span class="l">Insight</span><span class="t">Parents want three days off the screen.</span></div>
+    <div class="row"><span class="l">Result</span><span class="t">Insight-led campaign — +10% 2024 sign-ups.</span></div>
+  </div>
   <a class="cmp-cta r d2" href="aikiforest.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Aikiforest Aikido</div></div>
@@ -520,7 +541,12 @@ a{color:inherit}
 <section class="sec tall" id="starbucks" data-nav="campaigns" data-title="Starbucks">
   <div class="head r"><span class="ln"></span><span class="lab">Campaign 04 — Starbucks Singapore · Experiential</span></div>
   <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">bean there, met you.</h2>
-  <p class="body-c r d2">A two-day Valentine's experiential event at PLQ Plaza, answering a fourth quarter of profit decline. SWOT-led positioning, the "Felicia Tay" persona, five stations and an earn-it mug built to keep working after everyone went home.</p>
+  <div class="cmp-lead r d2">Four quarters of falling profit.</div>
+  <div class="pir r d2">
+    <div class="row"><span class="l">Problem</span><span class="t">A premium brand undercut by waits and digital silence.</span></div>
+    <div class="row"><span class="l">Insight</span><span class="t">This crowd posts a mug they earned, not a discount.</span></div>
+    <div class="row"><span class="l">Result</span><span class="t">A two-day experiential rally — Valentine's, PLQ Plaza.</span></div>
+  </div>
   <a class="cmp-cta r d2" href="starbucks.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Starbucks Singapore</div></div>
@@ -558,7 +584,7 @@ a{color:inherit}
       </div>
       <div class="arc-exp"><div class="inner">
         <div class="photo" style="background:#0a1322 url('assets/dispatch-icebath.jpg') center/cover"></div>
-        <p class="excerpt">A new generation of Bangkok night-owls is trading the bar for the bath — cold plunges, breathwork and 6am company. I spent an evening at the club turning sobriety into the city's most wanted reservation, on record with the people building it.<span class="src">Original reporting · The Ice Bath Club</span></p>
+        <p class="excerpt">A new generation of Bangkok night-owls is trading the bar for the bath — cold plunges, breathwork and 6am company. I spent an evening at the club turning sobriety into the city's most wanted reservation, on record with the people building it.<span class="src">Original reporting · The Ice House at FIG</span></p>
       </div></div>
     </article>
     <article class="arc" tabindex="0">
