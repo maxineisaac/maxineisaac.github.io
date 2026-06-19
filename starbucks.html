@@ -1,153 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Starbucks — Bean There, Met You · Maxine Isaac</title>
-  <meta name="description" content="A two-day Valentine's experiential campaign for Starbucks Singapore. Persona, brand analysis, and social by Maxine Isaac." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Starbucks — Bean There, Met You · Maxine Isaac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;--ink:#111111;--ink-soft:#6F6A63;--ink-faint:rgba(17,17,17,.32);
+  --rule:#D7D1C8;--sans:'Inter',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;
+  --red:#111111;--wine:#4a0f1a;--mx:clamp(20px,5vw,68px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--red);color:#fff}
+.lab{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+
+.bar{position:fixed;top:0;left:0;right:0;height:58px;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--mx);background:rgba(241,238,229,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar a{text-decoration:none;color:var(--ink)}
+.bar .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.bar .brand{font-weight:700;font-size:15px}
+
+/* paper hero (ink) */
+.hero{background:var(--paper);color:var(--ink);min-height:80vh;
+  display:flex;flex-direction:column;justify-content:center;padding:calc(58px + 40px) var(--mx) 48px;position:relative;overflow:hidden}
+.hero .htag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);position:relative;z-index:3}
+.hero h1{font-weight:800;line-height:.92;letter-spacing:-.025em;text-transform:lowercase;font-size:clamp(46px,11vw,176px);margin-top:16px;color:var(--ink);position:relative;z-index:3}
+.hero .sub{margin-top:24px;font-size:clamp(16px,1.9vw,24px);color:var(--ink-soft);max-width:32ch;position:relative;z-index:3}
+.hero .crow{margin-top:clamp(34px,5vw,56px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid var(--rule);padding-top:18px;position:relative;z-index:3}
+.hero .crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.hero .crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.hero .crow .v em{font-style:italic;font-weight:400;color:var(--ink-soft)}
+.hero .orb{position:absolute;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(17,17,17,.05),transparent 70%)}
+.hero .o1{width:clamp(220px,30vw,460px);aspect-ratio:1;right:4%;top:18%;animation:drift 15s ease-in-out infinite}
+.hero .o2{width:clamp(140px,18vw,280px);aspect-ratio:1;right:26%;bottom:8%;animation:drift 19s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-26px,22px)}}
+@media(max-width:780px){.hero .crow{grid-template-columns:repeat(2,1fr);gap:16px}.hero .orb{opacity:.5}}
+
+.onthis{position:sticky;top:58px;z-index:70;background:rgba(241,238,229,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
+  display:flex;gap:clamp(12px,2vw,28px);padding:14px var(--mx);overflow-x:auto}
+.onthis .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-right:6px;white-space:nowrap}
+.onthis a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);white-space:nowrap;transition:color .3s}
+.onthis a:hover{color:var(--red)}
+
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(48px,7vw,96px) var(--mx)}
+.sec{display:grid;grid-template-columns:130px 1fr;gap:clamp(20px,4vw,64px);padding:clamp(34px,5vw,58px) 0;border-top:1px solid var(--rule);scroll-margin-top:104px}
+.sec:first-child{border-top:none}
+.sec .idx{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+.sec .idx b{display:block;color:var(--ink);font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
+.sec .body h2{font-weight:800;letter-spacing:-.02em;line-height:1.05;font-size:clamp(24px,3.4vw,44px);text-transform:lowercase;margin-bottom:18px}
+.sec .body p{font-size:clamp(15px,1.5vw,18px);line-height:1.66;color:var(--ink-soft);max-width:62ch}
+.sec .body p+p{margin-top:16px}
+.sec .body p strong{color:var(--ink);font-weight:600}
+.sec .body ul{list-style:none;margin-top:18px;max-width:62ch}
+.sec .body li{position:relative;padding:14px 0 14px 28px;border-top:1px solid var(--rule);font-size:clamp(15px,1.5vw,17px);line-height:1.5}
+.sec .body li::before{content:"";position:absolute;left:0;top:21px;width:10px;height:1px;background:var(--ink)}
+.sec .body li b{font-weight:600;color:var(--ink)}
+@media(max-width:680px){.sec{grid-template-columns:1fr;gap:14px}}
+
+.pull{margin:clamp(40px,7vw,90px) 0;padding:0 var(--mx);text-align:center}
+.pull p{font-weight:800;letter-spacing:-.02em;line-height:1.04;font-size:clamp(26px,5.2vw,72px);text-transform:lowercase;max-width:20ch;margin:0 auto;color:var(--red)}
+
+.targets{margin-top:18px;border:1px solid var(--rule);border-radius:10px;padding:clamp(20px,3vw,30px)}
+.targets .tk{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px}
+.targets .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:22px}
+.targets .grid .s b{font-weight:800;font-size:clamp(26px,3.4vw,42px);letter-spacing:-.02em;line-height:1;display:block}
+.targets .grid .s span{margin-top:8px;display:block;font-size:12px;color:var(--ink-soft)}
+.targets .more{margin-top:18px;font-size:14px;color:var(--ink-soft);line-height:1.6;border-top:1px solid var(--rule);padding-top:14px}
+
+.note{margin-top:22px;border-left:2px solid var(--ink);padding:6px 0 6px 20px}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.note p{margin-top:8px;font-style:italic;color:var(--ink);max-width:60ch;line-height:1.55}
+
+.casenav{border-top:1px solid var(--ink);padding:30px var(--mx);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+.casenav a{text-decoration:none;color:var(--ink)}
+.casenav .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.casenav .tt{font-weight:700;font-size:clamp(18px,2.4vw,28px);margin-top:6px}
+.casenav .home{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.foot{padding:24px var(--mx);font-family:var(--mono);font-size:10px;color:var(--ink-faint);border-top:1px solid var(--rule)}
+@media(prefers-reduced-motion:reduce){.hero .orb{animation:none}}
+</style>
 </head>
-<body data-page="case-starbucks">
+<body>
+<div class="bar">
+  <a class="back" href="index.html#starbucks">← Back to portfolio</a>
+  <a class="brand" href="index.html">Maxine Isaac.</a>
+</div>
 
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="index.html">Maxine Isaac<b>.</b></a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="work.html">Work</a>
-        <a href="services.html">Web Design</a>
-        <a href="newsletters.html">Newsletters</a>
-        <a href="writing.html">Writing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="hero">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="htag">Case 05 — Starbucks Singapore · Experiential · 2026</div>
+  <h1>bean there,<br>met you.</h1>
+  <p class="sub">A fourth quarter of falling profit. A weekend to fix it.</p>
+  <div class="crow">
+    <div class="c"><div class="k">Client</div><div class="v">Starbucks Singapore</div></div>
+    <div class="c"><div class="k">Role</div><div class="v">Brand analysis · Persona · Social <em>(pair)</em></div></div>
+    <div class="c"><div class="k">Brief</div><div class="v">Experiential Marketing</div></div>
+    <div class="c"><div class="k">Year</div><div class="v">2026</div></div>
+    <div class="c"><div class="k">Outputs</div><div class="v">Two-day event concept &amp; rollout</div></div>
+  </div>
+</header>
 
-  <div class="chip chip--bl"><span class="led" aria-hidden="true"></span><span><span data-clock>--:-- SGT</span> · 1°21′N 103°49′E</span></div>
-  <div class="chip chip--br">© <span data-year>2026</span> Maxine Isaac</div>
+<nav class="onthis">
+  <span class="t">On this page</span>
+  <a href="#context">Context</a>
+  <a href="#analysis">Brand analysis</a>
+  <a href="#persona">Persona</a>
+  <a href="#concept">Concept</a>
+  <a href="#social">Social rollout</a>
+  <a href="#outcome">Outcome</a>
+</nav>
 
-  <section class="page-hero case-hero">
-    <div class="wrap">
-      <span class="marker">04 · Experiential Marketing · 2026</span>
-      <h1>A fourth quarter of falling profit. A <em>weekend</em> to fix it.</h1>
-      <p class="page-hero__lede">Starbucks Singapore had been losing ground to boycotts, high prices, and premium home machines. The brief was experiential — but the real work was finding which young professional we were trying to bring back, and what they actually wanted out of a coffee event.</p>
-      <div class="case-meta">
-        <div class="case-meta__item"><h5>Role</h5><p>Brand analysis, Persona,<br>Social (Pair project)</p></div>
-        <div class="case-meta__item"><h5>Brief</h5><p>Experiential<br>Marketing</p></div>
-        <div class="case-meta__item"><h5>Year</h5><p>2026</p></div>
-        <div class="case-meta__item"><h5>Outputs</h5><p>Two-day event<br>concept &amp; rollout</p></div>
-      </div>
-      <div class="case-visual" aria-hidden="true">S</div>
-    </div>
-  </section>
+<main class="wrap">
 
-  <section class="section">
-    <div class="wrap">
-      <div class="case-body">
-        <aside class="case-toc">
-          <h4>On this page</h4>
-          <a href="#context">Context</a>
-          <a href="#analysis">Brand analysis</a>
-          <a href="#persona">Persona</a>
-          <a href="#concept">Concept</a>
-          <a href="#social">Social rollout</a>
-          <a href="#outcome">Outcome</a>
-        </aside>
-        <div>
-          <div class="case-section reveal" id="context">
-            <h2><span class="num">01</span>Context</h2>
-            <p>Starbucks Singapore was facing a fourth consecutive quarter of profit decline — driven by boycotts, high drink prices, and the rise of premium home coffee machines. The brief was to design a multi-sensory experiential campaign that would deepen emotional connection with young professionals while reinforcing Starbucks' premium brand identity.</p>
-          </div>
-
-          <div class="case-section reveal" id="analysis">
-            <h2><span class="num">02</span>Brand Analysis</h2>
-            <p>I led the company analysis. A SWOT exercise pointed to a clearer diagnosis than the brief had: the brand's strengths (customisation, the "third place" atmosphere) were being undercut by long wait times and overwhelming menus, and the community-coffeehouse identity wasn't being reinforced anywhere in the digital experience.</p>
-            <p>The campaign had to do two things at once — fix a digital absence in the short term, and earn back a category position long term.</p>
-          </div>
-
-          <div class="case-section reveal" id="persona">
-            <h2><span class="num">03</span>Persona</h2>
-            <p>I built <strong>Felicia Tay</strong> — a 25-year-old marketing executive, middle-to-upper income, living in the city. I covered habits, values, preferences, needs, and pain points, and tested every concept decision against her.</p>
-            <p>The persona work shaped every downstream choice. The "exclusive mug for completing all stamps" reward came directly from a persona finding: this segment values tangible takeaways and exclusive merchandise more than discounts.</p>
-          </div>
-
-          <div class="pullquote reveal">Felicia wouldn't post a discount. She would post a mug she had to earn.</div>
-
-          <div class="case-section reveal" id="concept">
-            <h2><span class="num">04</span>Concept</h2>
-            <p>My partner and I built <em>Bean There, Met You</em> — a two-day Valentine's weekend event (14–15 February 2026) at PLQ Plaza, structured around five interconnected stations and a stamp rally.</p>
-            <ul class="case-bullets">
-              <li>Specialty coffee tasting</li>
-              <li>Hands-on brewing</li>
-              <li>Latte art</li>
-              <li>DIY cup sleeves</li>
-              <li>Photobooth / photowall</li>
-            </ul>
-            <p>Complete all four core stations and you earned an exclusive Starbucks mug — a deliberately scarce, deliberately shareable object designed to do the social media work after the event was over.</p>
-          </div>
-
-          <div class="case-section reveal" id="social">
-            <h2><span class="num">05</span>Social Rollout</h2>
-            <p>I designed the social collaterals: event promotion posts, captions, and the rollout plan for Instagram and TikTok. We used a nano-influencer engagement strategy — small audiences, high trust — to drive FOMO without burning the influencer budget on reach we couldn't activate.</p>
-          </div>
-
-          <div class="case-section reveal" id="outcome">
-            <h2><span class="num">06</span>Outcome</h2>
-            <p>A two-day event engineered to keep working after it ended — the earn-it mug designed to do the social work once everyone went home.</p>
-            <div class="outcome">
-              <h4>Targets</h4>
-              <p>Sell 1,060 tickets, 480 specialty coffee bags, 50 brewing equipment sets. Net profit ≥ SGD 5,300. CSAT ≥ 85%, average 45-min dwell time. Long-term targets: 15% Q1 sales uplift, NPS shift from 30 to 45.</p>
-            </div>
-            <p class="case-runback">
-              <strong>If I ran it again →</strong>
-              I'd prototype the five-station flow on-site first — the 45-minute dwell target only holds if the queue between stations never does.
-            </p>
-          </div>
-        </div>
-      </div>
+  <section class="sec" id="context">
+    <div class="idx">01<b>Context</b></div>
+    <div class="body">
+      <h2>four quarters down, one weekend to answer it.</h2>
+      <p>Starbucks Singapore was facing a <strong>fourth consecutive quarter of profit decline</strong> — driven by boycotts, high drink prices, and the rise of premium home coffee machines. The brief: design a multi-sensory experiential campaign that would deepen emotional connection with young professionals while reinforcing Starbucks' premium brand identity.</p>
     </div>
   </section>
 
-  <nav class="case-nav" aria-label="Case study navigation">
-    <a href="nike.html">
-      <small>← Previous case study</small>
-      <strong>Nike — Step Into Strength</strong>
-    </a>
-    <a href="aikiforest.html">
-      <small>Next case study →</small>
-      <strong>Aikiforest Aikido</strong>
-    </a>
-  </nav>
+  <section class="sec" id="analysis">
+    <div class="idx">02<b>Brand Analysis</b></div>
+    <div class="body">
+      <h2>a clearer diagnosis than the brief.</h2>
+      <p>I led the company analysis. A SWOT exercise pointed to a sharper read than the brief had: the brand's strengths — <strong>customisation and the "third place" atmosphere</strong> — were being undercut by long wait times and overwhelming menus, and the community-coffeehouse identity wasn't being reinforced anywhere in the digital experience.</p>
+      <p>So the campaign had to do two things at once — <strong>fix a digital absence in the short term, and earn back a category position long term.</strong></p>
+    </div>
+  </section>
 
-  <footer class="foot">
-    <div class="wrap">
-      <div class="foot__top">
-        <div class="foot__big">Let's make<br>something <em>good.</em></div>
-        <div class="foot__col">
-          <h5>Navigate</h5>
-          <a href="work.html">Marketing Work</a>
-          <a href="services.html">Web Design</a>
-          <a href="newsletters.html">Newsletters</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+  <section class="sec" id="persona">
+    <div class="idx">03<b>Persona</b></div>
+    <div class="body">
+      <h2>everything tested against felicia.</h2>
+      <p>I built <strong>Felicia Tay</strong> — a 25-year-old marketing executive, middle-to-upper income, living in the city. I covered her habits, values, preferences, needs and pain points, and tested every concept decision against her.</p>
+      <p>The persona shaped every downstream choice. The "exclusive mug for completing all stamps" reward came straight from a persona finding: this segment values <strong>tangible takeaways and exclusive merchandise more than discounts.</strong></p>
+    </div>
+  </section>
+
+  <div class="pull"><p>Felicia wouldn't post a discount. She would post a mug she had to earn.</p></div>
+
+  <section class="sec" id="concept">
+    <div class="idx">04<b>Concept</b></div>
+    <div class="body">
+      <h2>"bean there, met you" — five stations, one rally.</h2>
+      <p>My partner and I built <strong>Bean There, Met You</strong> — a two-day Valentine's weekend event (14–15 February 2026) at PLQ Plaza, structured around five interconnected stations and a stamp rally.</p>
+      <ul>
+        <li>Specialty coffee tasting</li>
+        <li>Hands-on brewing</li>
+        <li>Latte art</li>
+        <li>DIY cup sleeves</li>
+        <li>Photobooth / photowall</li>
+      </ul>
+      <p style="margin-top:18px">Complete all four core stations and you earned an exclusive Starbucks mug — a deliberately scarce, deliberately shareable object designed to do the social-media work after the event was over.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="social">
+    <div class="idx">05<b>Social Rollout</b></div>
+    <div class="body">
+      <h2>nano-influencers over reach.</h2>
+      <p>I designed the social collaterals — event promotion posts, captions, and the rollout plan for Instagram and TikTok. We used a <strong>nano-influencer engagement strategy</strong> — small audiences, high trust — to drive FOMO without burning the budget on reach we couldn't activate.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="outcome">
+    <div class="idx">06<b>Outcome</b></div>
+    <div class="body">
+      <h2>built to keep working after it ended.</h2>
+      <p>A two-day event engineered to keep working once everyone went home — the earn-it mug doing the social work after the weekend closed.</p>
+      <div class="targets">
+        <div class="tk">Targets</div>
+        <div class="grid">
+          <div class="s"><b>1,060</b><span>tickets sold</span></div>
+          <div class="s"><b>≥S$5,300</b><span>net profit</span></div>
+          <div class="s"><b>≥85%</b><span>CSAT</span></div>
+          <div class="s"><b>45 min</b><span>avg. dwell time</span></div>
         </div>
-        <div class="foot__col">
-          <h5>Elsewhere</h5>
-          <a href="mailto:maxine_isaac@yahoo.com">Email</a>
-          <a href="https://www.instagram.com/grlsmeetwrld/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.linkedin.com/in/maxineisaac" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+        <div class="more">Also: 480 specialty coffee bags · 50 brewing equipment sets · long-term 15% Q1 sales uplift · NPS shift from 30 → 45.</div>
       </div>
-      <div class="foot__bottom">
-        <span>© <span data-year>2026</span> Maxine Isaac. Singapore.</span>
-        <span class="foot__colophon">Set in Fraunces &amp; Inter. Hand-coded in HTML &amp; CSS. Singapore, MMXXVI.</span>
+      <div class="note">
+        <div class="k">If I ran it again →</div>
+        <p>I'd prototype the five-station flow on-site first — the 45-minute dwell target only holds if the queue between stations never does.</p>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+</main>
+
+<nav class="casenav">
+  <a class="home" href="index.html#campaigns">All campaigns</a>
+  <a class="nx" href="aikiforest.html">
+    <div class="k">Next case study →</div>
+    <div class="tt">Aikiforest — Three Days Off the Screen</div>
+  </a>
+</nav>
+<footer class="foot">© 2026 Maxine Isaac · Starbucks — Bean There, Met You · 2026</footer>
 </body>
 </html>

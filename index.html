@@ -1,280 +1,846 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maxine Isaac — Marketing & Web Design</title>
-  <meta name="description" content="Maxine Isaac is a Singapore-based marketing strategist and web designer. Brand strategy, social content, and clean websites for owner-led brands." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maxine Isaac — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Act I — Paper */
+  --paper:#F4F1EA;
+  --ink:#111111;
+  --ink-soft:#6F6A63;
+  --ink-faint:rgba(17,17,17,.32);
+  --rule:#D7D1C8;
+  /* Act II — Wine */
+  --wine:#7C224B;
+  --wine-2:#8A2C58;
+  --wine-cream:#F7F2EB;
+  --blush:#D89AB7;
+  /* Act III — Midnight */
+  --midnight:#0E1117;
+  --midnight-2:#141B28;
+  --gold:#D9B46B;
+  /* Act IV — Sunrise */
+  --sun-gold:#C89B57;
+  --pink:#7C224B;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+  --mx:clamp(20px,5vw,68px);
+  --nav:62px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+
+/* labels / type */
+.lab{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.display{font-weight:800;letter-spacing:-.03em;line-height:.96;text-transform:lowercase}
+.dot-cur{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:rgba(22,21,15,.55);
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .22s,height .22s,background .22s,opacity .3s;mix-blend-mode:multiply}
+.dot-cur.big{width:46px;height:46px;background:rgba(22,21,15,.12)}
+
+/* top nav */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:8000;display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--mx);background:rgba(244,241,234,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
+.nav .brand b{color:var(--ink)}
+.nav .links{display:flex;gap:clamp(14px,2vw,30px)}
+.nav .links a{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);
+  position:relative;padding:4px 0;transition:color .3s}
+.nav .links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nav .links a:hover,.nav .links a.on{color:var(--ink)}
+.nav .links a.on::after{transform:scaleX(1)}
+@media(max-width:780px){.nav .links{gap:12px}.nav .links a{font-size:9px;letter-spacing:.1em}}
+@media(max-width:520px){.nav .links a:nth-child(n+4){display:none}}
+
+/* section dots */
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:7000;display:flex;flex-direction:column;gap:14px}
+.dots button{width:8px;height:8px;border-radius:50%;border:1px solid var(--ink-faint);background:transparent;cursor:none;padding:0;transition:background .3s,transform .3s}
+.dots button.on{background:var(--ink);transform:scale(1.25)}
+@media(max-width:820px){.dots{display:none}}
+
+/* next button */
+.next{position:fixed;left:22px;bottom:22px;z-index:7000;width:46px;height:46px;border-radius:50%;border:1px solid var(--ink);
+  background:transparent;color:var(--ink);font-size:16px;cursor:none;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+.next:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:820px){.next{display:none}}
+
+/* section shell */
+.sec{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--nav) + 28px) var(--mx) 56px;position:relative}
+.sec .head{display:flex;align-items:center;gap:14px;margin-bottom:clamp(26px,4vw,48px)}
+.sec .head .ln{width:30px;height:1px;background:var(--ink-soft)}
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+/* INDEX */
+.index .kick{margin-bottom:22px}
+.index h1{font-weight:800;letter-spacing:-.035em;line-height:.92;text-transform:lowercase;font-size:clamp(44px,9.5vw,168px);max-width:14ch}
+.index .sub{margin-top:26px;max-width:50ch;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--ink-soft)}
+.meta-row{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--rule);padding-top:20px}
+.meta-row .m .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.meta-row .m .v{margin-top:7px;font-size:14px;font-weight:500}
+@media(max-width:680px){.meta-row{grid-template-columns:repeat(2,1fr);gap:18px}}
+
+/* about — timeline */
+.tl{position:relative;padding-left:42px;margin-top:clamp(28px,4vw,50px);max-width:760px}
+.tl::before{content:"";position:absolute;left:7px;top:10px;bottom:12px;width:2px;background:var(--ink);opacity:.16}
+.node{position:relative;margin-bottom:clamp(26px,3.6vw,42px)}
+.node:last-child{margin-bottom:0}
+.node::before{content:"";position:absolute;left:-42px;top:4px;width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);background:var(--paper);transition:background .4s}
+.node:hover::before{background:var(--ink)}
+.node .yr{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.node h4{font-weight:800;font-size:clamp(24px,3.6vw,46px);letter-spacing:-.02em;text-transform:lowercase;line-height:1;margin:6px 0 0}
+.node .where{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-soft);margin-top:7px}
+.node p{margin-top:11px;font-size:clamp(14px,1.5vw,17px);line-height:1.6;color:var(--ink-soft)}
+
+/* COVER (magazine cover, scroll-morph) */
+.cover-stage{position:relative;height:300vh;scroll-snap-align:start}
+.cover-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:0 var(--mx)}
+.cover-h{font-weight:800;letter-spacing:-.04em;line-height:.9;font-size:clamp(46px,11vw,200px);max-width:13ch}
+.cover-h .morph{display:inline-block;transition:opacity .42s cubic-bezier(.16,1,.3,1),transform .42s cubic-bezier(.16,1,.3,1)}
+@media(max-width:820px){.cover-stage{height:260vh}}
+
+/* generic big headline */
+.big-h{font-weight:800;letter-spacing:-.03em;line-height:.98;text-transform:lowercase;font-size:clamp(34px,6.5vw,104px);max-width:16ch}
+.body-c{margin-top:26px;max-width:54ch;font-size:clamp(15px,1.5vw,18px);line-height:1.62;color:var(--ink-soft)}
+.cmp-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid var(--ink);border-radius:100px;padding:13px 22px;transition:background .3s,color .3s}
+.cmp-cta:hover{background:var(--ink);color:var(--paper)}
+
+/* work index */
+/* selected work — table of contents */
+.toc-list{position:relative;z-index:2;margin-top:clamp(26px,4vw,46px);border-top:1px solid var(--ink)}
+.toc-row{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:clamp(16px,3vw,40px);
+  padding:clamp(16px,2.4vw,28px) 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);
+  transition:padding-left .45s cubic-bezier(.16,1,.3,1)}
+.toc-row .num{font-family:var(--mono);font-size:clamp(13px,1.6vw,18px);color:var(--ink-faint);transition:font-size .4s,color .4s;min-width:42px}
+.toc-row .ttl{font-weight:800;font-size:clamp(24px,5vw,62px);letter-spacing:-.03em;text-transform:lowercase;line-height:1;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.toc-row .cat{font-size:13px;color:var(--ink-soft);justify-self:end;text-align:right;max-width:26ch;opacity:0;transform:translateX(-10px);transition:opacity .4s,transform .4s}
+.toc-row .arw{font-size:20px;color:var(--ink);opacity:.25;justify-self:end;transform:translateX(-8px);transition:opacity .4s,transform .4s}
+.toc-row:hover{padding-left:14px}
+.toc-row:hover .num{font-size:clamp(20px,3vw,34px);color:var(--ink)}
+.toc-row:hover .ttl{transform:translateX(6px)}
+.toc-row:hover .cat{opacity:1;transform:none}
+.toc-row:hover .arw{opacity:1;transform:translateX(8px)}
+.toc-preview{position:fixed;left:0;top:0;width:clamp(220px,22vw,330px);aspect-ratio:4/5;z-index:60;pointer-events:none;
+  border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.4);opacity:0;transform:translate(-50%,-50%) scale(.94);
+  transition:opacity .35s,transform .35s;background-size:cover;background-position:center}
+.toc-preview.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media(max-width:680px){
+  .toc-row{grid-template-columns:auto 1fr;row-gap:6px}
+  .toc-row .cat{grid-column:1/-1;justify-self:start;text-align:left;opacity:1;transform:none;max-width:none}
+  .toc-row .arw{display:none}
+  .toc-preview{display:none}
+}
+@media(pointer:coarse){.toc-preview{display:none}}
+
+/* case */
+.case .ctag{margin-bottom:18px}
+.case h2{font-weight:800;letter-spacing:-.03em;line-height:.96;text-transform:lowercase;font-size:clamp(40px,8vw,150px);max-width:13ch}
+.case h2 .pk{color:var(--pink)}
+.case .stand{margin-top:24px;max-width:56ch;font-size:clamp(15px,1.5vw,18px);line-height:1.62;color:var(--ink-soft)}
+.case .crow{margin-top:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid var(--ink);padding-top:18px}
+.case .crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.case .crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.case .crow .v em{font-style:italic;font-weight:400;color:var(--ink-soft)}
+@media(max-width:780px){.case .crow{grid-template-columns:repeat(2,1fr);gap:16px}}
+
+/* NIKE — black world */
+.nike-world{background:#070707;color:#F5F5F2;overflow:hidden}
+.nike-world .lab{color:rgba(245,245,242,.55)}
+.nw-inner{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto}
+.nw-h{font-weight:900;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-size:clamp(50px,12.5vw,178px);display:flex;flex-direction:column;margin-top:14px}
+.nw-h .o{color:transparent;-webkit-text-stroke:1.6px rgba(245,245,242,.85)}
+.nw-stand{margin-top:22px;max-width:52ch;color:rgba(245,245,242,.72);line-height:1.6;font-size:clamp(15px,1.5vw,18px)}
+.nw-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F5F5F2;text-decoration:none;border:1px solid rgba(245,245,242,.5);border-radius:100px;padding:13px 22px;transition:background .3s,color .3s}
+.nw-cta:hover{background:#F5F5F2;color:#070707}
+.nw-crow{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid rgba(245,245,242,.28);padding-top:18px}
+.nw-crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,245,242,.45)}
+.nw-crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.nw-crow .v em{font-style:italic;font-weight:400;color:rgba(245,245,242,.6)}
+.nw-tile{position:absolute;z-index:1;border-radius:3px;will-change:transform;opacity:.9;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.nw-t1{width:clamp(110px,15vw,220px);aspect-ratio:3/4;right:5%;top:11%;background:linear-gradient(150deg,#3c3c3c,#0c0c0c);animation:nwf 9s ease-in-out infinite}
+.nw-t2{width:clamp(88px,11vw,160px);aspect-ratio:1/1;right:19%;bottom:13%;background:linear-gradient(150deg,#565656,#151515);animation:nwf 12s ease-in-out infinite reverse}
+.nw-t3{width:clamp(78px,9vw,128px);aspect-ratio:3/4;right:37%;top:17%;background:linear-gradient(150deg,#2a2a2a,#000);animation:nwf 14s ease-in-out infinite}
+@keyframes nwf{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-26px) rotate(1.6deg)}}
+@media(max-width:780px){.nw-crow{grid-template-columns:repeat(2,1fr);gap:16px}.nw-tile{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.nw-tile{animation:none}}
+
+/* UNION JACK — steel blueprint world */
+.uje-world{background:#1b2026;color:#D8DFE7;overflow:hidden;
+  background-image:repeating-linear-gradient(0deg,transparent 0 39px,rgba(150,180,210,.05) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(150,180,210,.05) 39px 40px),linear-gradient(160deg,#212832,#0f1318)}
+.uje-world .lab{color:rgba(216,223,231,.55)}
+.uje-inner{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto}
+.uje-h{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.88;font-size:clamp(50px,13vw,194px);margin-top:14px}
+.uje-stand{margin-top:22px;max-width:54ch;color:rgba(216,223,231,.7);line-height:1.6;font-size:clamp(15px,1.5vw,18px)}
+.uje-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#D8DFE7;text-decoration:none;border:1px solid rgba(216,223,231,.4);padding:13px 22px;transition:background .3s,color .3s}
+.uje-cta:hover{background:#D8DFE7;color:#10151a}
+.uje-crow{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid rgba(216,223,231,.25);padding-top:18px}
+.uje-crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(216,223,231,.45)}
+.uje-crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.uje-crow .v em{font-style:italic;font-weight:400;color:rgba(216,223,231,.6)}
+.uje-bp{position:absolute;right:7%;top:50%;width:clamp(150px,22vw,340px);aspect-ratio:1;z-index:1;border:1px solid rgba(150,180,210,.3);transform:translateY(-50%);animation:ujespin 44s linear infinite}
+.uje-bp::before,.uje-bp::after{content:"";position:absolute;background:rgba(150,180,210,.3)}
+.uje-bp::before{left:50%;top:0;bottom:0;width:1px}
+.uje-bp::after{top:50%;left:0;right:0;height:1px}
+.uje-scan{position:absolute;left:0;right:0;height:2px;z-index:2;background:linear-gradient(90deg,transparent,rgba(150,190,230,.5),transparent);animation:ujescan 6s linear infinite}
+@keyframes ujespin{to{transform:translateY(-50%) rotate(360deg)}}
+@keyframes ujescan{0%{top:0}100%{top:100%}}
+@media(max-width:780px){.uje-crow{grid-template-columns:repeat(2,1fr);gap:16px}.uje-bp{opacity:.4}}
+@media(prefers-reduced-motion:reduce){.uje-bp{animation:none}.uje-scan{display:none}}
+
+/* AIKIFOREST — forest world */
+.aiki-world{background:radial-gradient(130% 130% at 18% 12%,#16301f,#06120c 72%);color:#DCEFD9;overflow:hidden}
+.aiki-world .lab{color:rgba(220,239,217,.55)}
+.aiki-inner{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto}
+.aiki-h{font-weight:800;text-transform:lowercase;letter-spacing:-.02em;line-height:.9;font-size:clamp(46px,11.5vw,176px);margin-top:14px;color:#C8EBAA;max-width:13ch}
+.aiki-stand{margin-top:22px;max-width:52ch;color:rgba(220,239,217,.72);line-height:1.6;font-size:clamp(15px,1.5vw,18px)}
+.aiki-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#DCEFD9;text-decoration:none;border:1px solid rgba(220,239,217,.4);padding:13px 22px;transition:background .3s,color .3s}
+.aiki-cta:hover{background:#DCEFD9;color:#0a1810}
+.aiki-crow{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid rgba(220,239,217,.24);padding-top:18px}
+.aiki-crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(220,239,217,.45)}
+.aiki-crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.aiki-crow .v em{font-style:italic;font-weight:400;color:rgba(220,239,217,.6)}
+.aiki-enso{position:absolute;right:6%;top:50%;width:clamp(150px,23vw,360px);aspect-ratio:1;z-index:1;
+  border:clamp(8px,1.4vw,18px) solid rgba(184,227,156,.22);border-radius:50%;border-right-color:transparent;transform:translateY(-50%);animation:aikispin 60s linear infinite}
+.aiki-orb{position:absolute;left:58%;top:28%;width:clamp(180px,28vw,440px);aspect-ratio:1;z-index:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(120,200,120,.12),transparent 70%);animation:aikidrift 16s ease-in-out infinite}
+@keyframes aikispin{to{transform:translateY(-50%) rotate(360deg)}}
+@keyframes aikidrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,24px)}}
+@media(max-width:780px){.aiki-crow{grid-template-columns:repeat(2,1fr);gap:16px}.aiki-enso{opacity:.4}}
+@media(prefers-reduced-motion:reduce){.aiki-enso,.aiki-orb{animation:none}}
+
+/* GRLSMEETWRLD — pink world */
+/* grlsmeetwrld — real brand colours: hot pink · burgundy · cream */
+.grls-world{background:radial-gradient(135% 135% at 22% 14%,#E91E68,#7B2438 72%);color:#F1ECE0;overflow:hidden}
+.grls-world ::selection{background:#F1ECE0;color:#7B2438}
+.grls-world .lab{color:rgba(241,236,224,.72)}
+.grls-inner{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto}
+.grls-h{font-weight:800;text-transform:lowercase;letter-spacing:-.025em;line-height:.94;font-size:clamp(34px,7.2vw,124px);margin-top:14px;max-width:15ch;color:#F4EFE2}
+.grls-h .u{color:#fff;font-style:italic;font-weight:500}
+.grls-tag{margin-top:20px;font-family:"Helvetica Neue","Arial Black",var(--sans);font-weight:700;font-size:clamp(16px,2vw,26px);color:rgba(241,236,224,.95);max-width:24ch;letter-spacing:-.01em}
+.grls-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F1ECE0;text-decoration:none;border:1px solid rgba(241,236,224,.55);border-radius:100px;padding:13px 22px;transition:background .3s,color .3s,border-color .3s}
+.grls-cta:hover{background:#F1ECE0;border-color:#F1ECE0;color:#7B2438}
+.grls-crow{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid rgba(241,236,224,.28);padding-top:18px}
+.grls-crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,236,224,.55)}
+.grls-crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.grls-crow .v em{font-style:italic;font-weight:400;color:rgba(241,236,224,.72)}
+@media(max-width:780px){.grls-crow{grid-template-columns:repeat(2,1fr);gap:16px}}
+
+/* STARBUCKS — warm red world */
+.sbux-world{background:radial-gradient(135% 135% at 24% 16%,#C8163A,#4a0f1a 72%);color:#FCE8EA;overflow:hidden}
+.sbux-world ::selection{background:#FFD2D8;color:#4a0f1a}
+.sbux-world .lab{color:rgba(252,232,234,.6)}
+.sbux-inner{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto}
+.sbux-h{font-weight:800;text-transform:lowercase;letter-spacing:-.025em;line-height:.9;font-size:clamp(46px,12vw,184px);margin-top:14px;color:#FFF1F0}
+.sbux-stand{margin-top:22px;max-width:50ch;color:rgba(252,232,234,.78);line-height:1.6;font-size:clamp(15px,1.5vw,18px)}
+.sbux-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#FCE8EA;text-decoration:none;border:1px solid rgba(252,232,234,.45);border-radius:100px;padding:13px 22px;transition:background .3s,color .3s}
+.sbux-cta:hover{background:#FCE8EA;color:#4a0f1a}
+.sbux-crow{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid rgba(252,232,234,.26);padding-top:18px}
+.sbux-crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(252,232,234,.5)}
+.sbux-crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.sbux-crow .v em{font-style:italic;font-weight:400;color:rgba(252,232,234,.7)}
+.sbux-orb{position:absolute;border-radius:50%;z-index:1;background:radial-gradient(circle,rgba(255,140,150,.18),transparent 70%)}
+.sbux-o1{width:clamp(220px,30vw,460px);aspect-ratio:1;right:4%;top:16%;animation:sbuxdrift 15s ease-in-out infinite}
+.sbux-o2{width:clamp(140px,18vw,280px);aspect-ratio:1;right:26%;bottom:8%;animation:sbuxdrift 19s ease-in-out infinite reverse}
+@keyframes sbuxdrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-26px,22px)}}
+@media(max-width:780px){.sbux-crow{grid-template-columns:repeat(2,1fr);gap:16px}.sbux-orb{opacity:.5}}
+@media(prefers-reduced-motion:reduce){.sbux-orb{animation:none}}
+
+/* scope index */
+.scope-grid{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,6vw,90px)}
+.scope-grid .row{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline;padding:15px 0;border-top:1px solid var(--rule)}
+.scope-grid .row .n{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+.scope-grid .row .t{font-size:clamp(15px,1.6vw,19px);font-weight:500}
+@media(max-width:680px){.scope-grid{grid-template-columns:1fr}}
+
+/* gallery */
+.gal-grid{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,22px)}
+.gal-grid figure{margin:0}
+.gal-grid .im{overflow:hidden;background:#e7dccd;border:1px solid var(--rule)}
+.gal-grid .im img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.gal-grid figure:hover .im img{transform:scale(1.04)}
+.gal-grid figcaption{margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+@media(max-width:820px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* thoughts — newspaper archive */
+.archive{margin-top:clamp(22px,3vw,38px);border-top:2px solid var(--ink)}
+.arc{border-bottom:1px solid var(--rule);cursor:pointer}
+.arc-head{display:grid;grid-template-columns:150px 1fr auto;gap:clamp(14px,3vw,40px);align-items:baseline;
+  padding:clamp(18px,2.6vw,30px) 0;transition:padding .45s cubic-bezier(.16,1,.3,1)}
+.arc .cat{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;transition:color .4s}
+.arc h3{font-weight:700;font-size:clamp(20px,2.8vw,40px);letter-spacing:-.02em;line-height:1.06;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.arc .meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-faint);white-space:nowrap;text-align:right;line-height:1.5}
+.arc-exp{max-height:0;overflow:hidden;opacity:0;transition:max-height .6s cubic-bezier(.16,1,.3,1),opacity .5s,margin .5s}
+.arc-exp .inner{display:grid;grid-template-columns:300px 1fr;gap:clamp(20px,4vw,48px);align-items:start;padding-bottom:30px}
+.arc-exp .photo{height:clamp(150px,20vw,210px);border-radius:4px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.arc-exp .photo span{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.arc-exp .excerpt{font-size:clamp(15px,1.6vw,18px);line-height:1.62;color:var(--ink-soft)}
+.arc-exp .excerpt .src{display:block;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.arc:hover,.arc:focus-within{outline:none}
+.arc:hover h3,.arc:focus-within h3{transform:translateX(10px)}
+.arc:hover .cat,.arc:focus-within .cat{color:var(--ink)}
+.arc:hover .arc-exp,.arc:focus-within .arc-exp{max-height:320px;opacity:1}
+.ph-night{background-image:linear-gradient(135deg,#1a2b4a,#070d1c)}
+.ph-river{background-image:linear-gradient(135deg,#7a4a26,#2a160a)}
+.ph-drink{background-image:linear-gradient(135deg,#9c6a2a,#3a230c)}
+@media(max-width:680px){
+  .arc-head{grid-template-columns:1fr;gap:8px}
+  .arc .meta{text-align:left}
+  .arc-exp .inner{grid-template-columns:1fr;gap:16px}
+  .arc-exp{max-height:none;opacity:1}
+  .arc-exp .inner{padding-top:4px}
+}
+
+/* newsletters */
+.nl-grid{margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.6vw,22px)}
+.nl{text-decoration:none;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.nl:hover{transform:translateY(-8px)}
+.nl .thumb{display:block;background:#fff;padding:8px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 14px 30px rgba(22,21,15,.13)}
+.nl .thumb img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--rule)}
+.nl .lbl{display:flex;justify-content:space-between;align-items:center;margin-top:11px;font-size:12px;color:var(--ink-soft)}
+.nl .lbl em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transition:opacity .3s}
+.nl:hover .lbl em{opacity:1}
+.nl-foot{margin-top:clamp(28px,4vw,44px);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;border-top:1px solid var(--rule);padding-top:22px}
+.nl-foot .testi{font-size:clamp(15px,1.7vw,20px);font-style:italic;line-height:1.45;max-width:50ch;color:var(--ink)}
+.nl-foot .testi span{display:block;margin-top:9px;font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.nl-foot .cta{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--ink);padding-bottom:3px}
+@media(max-width:860px){.nl-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.nl-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* NEWSLETTERS — desk of mail */
+.desk{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:clamp(20px,3vw,46px);margin-top:clamp(34px,5vw,60px);padding-bottom:30px}
+.env-wrap{position:relative;display:block;width:clamp(220px,24vw,280px);height:300px;text-decoration:none;color:inherit;
+  transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.env-wrap:nth-child(5n+1){transform:rotate(-3deg)}
+.env-wrap:nth-child(5n+2){transform:rotate(2deg);margin-top:26px}
+.env-wrap:nth-child(5n+3){transform:rotate(-1.5deg)}
+.env-wrap:nth-child(5n+4){transform:rotate(2.6deg);margin-top:20px}
+.env-wrap:nth-child(5n){transform:rotate(-2deg)}
+.env-wrap:hover{transform:rotate(0) translateY(-8px);z-index:10}
+/* the newsletter peeking out */
+.env-wrap .preview{position:absolute;left:9%;width:82%;top:118px;z-index:1;background:#fff;padding:6px;
+  box-shadow:0 8px 20px rgba(33,28,18,.16);transition:top .55s cubic-bezier(.16,1,.3,1),box-shadow .4s}
+.env-wrap .preview img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.env-wrap:hover .preview{top:14px;box-shadow:0 26px 50px rgba(33,28,18,.3)}
+/* envelope body */
+.env-wrap .env{position:absolute;left:0;right:0;bottom:0;height:212px;z-index:2;background:#e9dfca;border-radius:5px;
+  border:1px solid rgba(33,28,18,.1);box-shadow:0 16px 34px rgba(33,28,18,.2);overflow:hidden}
+.env-wrap .env::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(33,28,18,.06)}
+.env-wrap .flap{position:absolute;top:0;left:0;right:0;height:118px;background:linear-gradient(#f0e8d6,#e2d8c0);
+  clip-path:polygon(0 0,100% 0,50% 100%);border-bottom:1px solid rgba(33,28,18,.07);z-index:3}
+.env-wrap .stamp{position:absolute;top:14px;right:14px;width:52px;height:62px;z-index:4;background:#fffdf7;
+  border:1px dashed rgba(33,28,18,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  transform:rotate(5deg);box-shadow:0 2px 5px rgba(0,0,0,.12)}
+.env-wrap .stamp .e{font-size:22px;line-height:1}
+.env-wrap .stamp .v{font-family:var(--mono);font-size:7px;letter-spacing:.04em;color:var(--ink-soft)}
+.env-wrap .addr{position:absolute;left:22px;bottom:26px;z-index:4;font-family:'Caveat',cursive;color:#3a3225;line-height:1.05}
+.env-wrap .addr .to{font-size:26px}
+.env-wrap .addr .ln{display:block;width:120px;height:1px;background:rgba(33,28,18,.25);margin-top:9px}
+.env-wrap .addr .ln.s{width:86px}
+.env-wrap .pm{position:absolute;top:22px;right:8px;width:74px;height:74px;z-index:4;border:1.5px solid rgba(33,28,18,.18);border-radius:50%;
+  transform:rotate(-12deg);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:rgba(33,28,18,.3);text-align:center}
+.env-hint{text-align:center;font-family:'Caveat',cursive;font-size:clamp(20px,2.4vw,26px);color:var(--ink-soft);margin-top:10px}
+@media(prefers-reduced-motion:reduce){.env-wrap,.env-wrap .preview{transition:none}}
+/* lightbox — open the newsletter */
+.lightbox{position:fixed;inset:0;z-index:9500;display:flex;align-items:flex-start;justify-content:center;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0;
+  background:rgba(10,9,7,.93);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;cursor:zoom-out}
+.lightbox.on{opacity:1;visibility:visible}
+.lightbox img{width:min(720px,94vw);height:auto;max-height:none;background:#fff;padding:10px;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);cursor:auto;margin:72px auto 90px;display:block}
+.lightbox .x{position:fixed;top:18px;right:22px;z-index:9600;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;background:rgba(10,9,7,.6);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.45);border-radius:100px;padding:10px 18px;cursor:pointer}
+.lightbox .cap{position:fixed;top:24px;left:24px;z-index:9600;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+
+/* future — midnight */
+.future{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--midnight),var(--midnight-2));color:#F4F1EA;cursor:none}
+.future canvas{position:absolute;inset:0;z-index:0}
+.future .spot{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(300px 300px at var(--mx2,50%) var(--my2,50%),rgba(217,180,107,.15),transparent 72%);transition:background .12s}
+.future .fwords{position:absolute;inset:0;z-index:2;pointer-events:none}
+.future .fw{position:absolute;font-weight:800;text-transform:lowercase;letter-spacing:-.02em;color:rgba(244,241,234,.11);
+  font-size:clamp(40px,9vw,150px);white-space:nowrap;will-change:transform,color}
+.future .inner{position:relative;z-index:3}
+.future .lab{color:rgba(244,241,234,.55)}
+.future .big-h em,.future h2 .em{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.future{cursor:auto}}
+
+/* web design */
+.sec.tall{justify-content:flex-start;min-height:auto;padding-top:calc(var(--nav) + 52px);padding-bottom:72px}
+.design .lead-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px);margin-top:clamp(28px,4vw,46px)}
+.svc .card{border:1px solid var(--rule);border-radius:12px;padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column;gap:11px;
+  background:rgba(255,255,255,.28);transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s}
+.svc .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(22,21,15,.1)}
+.svc .card .n{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+.svc .card h3{font-weight:700;font-size:clamp(19px,2.1vw,26px);letter-spacing:-.01em;text-transform:lowercase}
+.svc .card p{font-size:14px;line-height:1.55;color:var(--ink-soft);flex:1}
+.svc .card .price{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink);border-top:1px solid var(--rule);padding-top:12px}
+@media(max-width:760px){.svc{grid-template-columns:1fr}}
+.dmarquee{margin-top:clamp(30px,4vw,48px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;padding:14px 0;white-space:nowrap}
+.dmarquee .tk{display:inline-block;animation:dscroll 26s linear infinite}
+.dmarquee span{font-weight:700;font-size:clamp(16px,2vw,24px);text-transform:lowercase;letter-spacing:-.01em;padding:0 16px;color:var(--ink)}
+.dmarquee span i{font-style:normal;color:var(--ink-faint);padding:0 4px}
+@keyframes dscroll{to{transform:translateX(-50%)}}
+.design .cta-row{margin-top:clamp(26px,4vw,40px);display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.design .cta-row .primary{font-weight:600;font-size:clamp(16px,1.8vw,21px);text-decoration:none;border-bottom:2px solid var(--ink);padding-bottom:3px;color:var(--ink);display:inline-flex;gap:8px}
+.design .cta-row .sec-link{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);border-bottom:1px solid var(--rule);padding-bottom:3px}
+.design .cta-row .sec-link:hover{color:var(--ink)}
+.design .thisnote{margin-top:clamp(24px,3vw,34px);max-width:64ch;font-size:14px;line-height:1.6;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:18px}
+.design .thisnote b{color:var(--ink);font-weight:600}
+.design .thisnote a{color:var(--ink)}
+
+/* contact — sunrise */
+.contact{position:relative;overflow:hidden;color:#1E1E1E;text-align:center;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;padding:clamp(60px,10vh,120px) var(--mx);
+  background:linear-gradient(180deg,#1D2330 0%,#5C5565 22%,#D4A99A 42%,#F6E8D8 60%,#F4F1EA 100%)}
+.contact::after{content:"";position:absolute;left:50%;top:40%;width:140vw;height:70vh;transform:translate(-50%,-40%);z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(232,196,140,.5),rgba(232,196,140,0) 70%)}
+.sunrise{position:relative;z-index:3;max-width:900px;margin:0 auto}
+.sunrise .big{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(38px,8vw,124px);line-height:.98;letter-spacing:-.02em;text-transform:lowercase}
+.sunrise .roles{margin-top:clamp(26px,4vw,42px);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);line-height:1.9}
+.sunrise .ask{margin-top:clamp(30px,4.5vw,52px);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,32px);line-height:1.45;color:#2c2419}
+.sunrise .ask b{font-weight:500;font-style:normal}
+.float-links{margin-top:clamp(30px,4vw,46px);display:flex;gap:clamp(20px,3.5vw,48px);justify-content:center;flex-wrap:wrap}
+.float-links a{font-size:clamp(16px,1.8vw,21px);font-weight:600;text-decoration:none;color:#1E1E1E;display:inline-flex;align-items:center;gap:9px;
+  animation:gfloat var(--d,5s) ease-in-out infinite;animation-delay:var(--dl,0s);transition:color .3s}
+.float-links a span{font-size:.85em;opacity:.7}
+.float-links a:hover{color:var(--sun-gold)}
+@keyframes gfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.sunrise .colophon{margin-top:clamp(42px,6vw,68px);font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-faint)}
+@media(prefers-reduced-motion:reduce){.float-links a{animation:none}}
+
+@media(max-width:820px){
+  html{scroll-snap-type:none}
+  .sec{min-height:auto;padding:calc(var(--nav) + 40px) var(--mx) 56px}
+  .index{min-height:100vh}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-snap-type:none;scroll-behavior:auto}
+  .r{transition:none;opacity:1;transform:none}
+  .dot-cur{display:none}
+}
+</style>
 </head>
 <body>
+<div class="dot-cur" id="cursor"></div>
 
-  <!-- ===== NAV ===== -->
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="index.html">Maxine Isaac<b>.</b></a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="work.html">Work</a>
-        <a href="services.html">Web Design</a>
-        <a href="newsletters.html">Newsletters</a>
-        <a href="writing.html">Writing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<nav class="nav">
+  <a class="brand" href="#index" data-link><b>Maxine Isaac.</b></a>
+  <div class="links">
+    <a href="#index" data-link>Index</a>
+    <a href="#campaigns" data-link>Campaigns</a>
+    <a href="#about" data-link>About</a>
+    <a href="#thoughts" data-link>Thoughts</a>
+    <a href="#design" data-link>Design</a>
+    <a href="#grls" data-link>grlsmeetwrld</a>
+    <a href="#future" data-link>Future</a>
+    <a href="#contact" data-link>Contact</a>
+  </div>
+</nav>
 
-  <!-- ===== FLOATING CHIPS ===== -->
-  <div class="chip chip--bl"><span class="led" aria-hidden="true"></span><span><span data-clock>--:-- SGT</span> · 1°21′N 103°49′E</span></div>
-  <div class="chip chip--br">© <span data-year>2026</span> Maxine Isaac</div>
+<div class="dots" id="dots"></div>
+<button class="next" id="next" aria-label="Next section">↓</button>
 
-  <!-- ===== PHOTO HERO (light cover) ===== -->
-  <section class="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__issue">
-      <b>Vol. I — MMXXVI</b>
-      Open to full-time<br>marketing roles
-    </div>
-    <div class="wrap">
-      <p class="label hero__kicker">Marketing Strategist · Web Designer · Newsletter Writer · Singapore</p>
-      <h1 class="hero__title">Strategy that <em>reads</em><br>the room.</h1>
-      <p class="hero__standfirst">Design that <em>holds</em> attention.</p>
-      <div class="hero__cta">
-        <a class="btn" href="work.html">See the work <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn--ghost" href="contact.html">Get in touch <span class="arr" aria-hidden="true">→</span></a>
+<!-- COVER -->
+<section class="cover-stage" id="index">
+  <div class="cover-sticky" data-nav="index" data-title="Index">
+    <h1 class="cover-h">Building brands<br>people <span class="morph" id="morph">remember</span>.</h1>
+  </div>
+</section>
+
+<!-- CAMPAIGNS INDEX -->
+<section class="sec tall" id="campaigns" data-nav="campaigns" data-title="Campaigns">
+  <div class="head r"><span class="ln"></span><span class="lab">Issue 01 — Selected Campaigns</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(30px,5.5vw,80px)">selected campaigns.</h2>
+  <div class="toc-list r d1" id="tocList">
+    <a class="toc-row" href="#nike" data-link data-bg="linear-gradient(135deg,#3a3a3a,#070707)">
+      <span class="num">01</span><span class="ttl">nike</span><span class="cat">Campaign concept — mental health</span><span class="arw">→</span></a>
+    <a class="toc-row" href="#unionjack" data-link data-bg="linear-gradient(135deg,#2b3340,#10151b)">
+      <span class="num">02</span><span class="ttl">union jack elevator</span><span class="cat">Client work — making infrastructure human</span><span class="arw">→</span></a>
+    <a class="toc-row" href="#aikiforest" data-link data-bg="linear-gradient(135deg,#1c3a26,#06120c)">
+      <span class="num">03</span><span class="ttl">aikiforest</span><span class="cat">Live client — growing communities</span><span class="arw">→</span></a>
+    <a class="toc-row" href="#starbucks" data-link data-bg="linear-gradient(135deg,#c8163a,#4a0f1a)">
+      <span class="num">04</span><span class="ttl">starbucks</span><span class="cat">Student project — experiential</span><span class="arw">→</span></a>
+  </div>
+  <div class="toc-preview" id="tocPrev"></div>
+</section>
+
+<!-- NIKE -->
+<section class="sec tall" id="nike" data-nav="campaigns" data-title="Nike">
+  <div class="head r"><span class="ln"></span><span class="lab">Campaign 01 — Nike · Storytelling · AI-assisted</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">step into strength.</h2>
+  <p class="body-c r d2">A Gen Z mental-health concept for Nike — running as self-talk, not performance. Grounded in research, bound by ethical guardrails, built to survive scrutiny.</p>
+  <a class="cmp-cta r d2" href="nike.html">Read the case study →</a>
+  <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
+    <div class="m"><div class="k">Client</div><div class="v">Nike <em>(spec)</em></div></div>
+    <div class="m"><div class="k">Role</div><div class="v">Storytelling · AI-assisted</div></div>
+    <div class="m"><div class="k">Year</div><div class="v">2025</div></div>
+    <div class="m"><div class="k">Status</div><div class="v">Self-initiated concept</div></div>
+  </div>
+</section>
+
+<!-- UNION JACK -->
+<section class="sec tall" id="unionjack" data-nav="campaigns" data-title="Union Jack">
+  <div class="head r"><span class="ln"></span><span class="lab">Campaign 02 — Union Jack Elevator · Brand repositioning</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">lift the future.</h2>
+  <p class="body-c r d2">Repositioning a 30-year-old B2B lift company into a consumer-facing safety educator. Research with 72 residents and homeowners exposed the gap — and anchored a four-pillar campaign built on real fear, not features.</p>
+  <a class="cmp-cta r d2" href="uje.html">Read the case study →</a>
+  <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
+    <div class="m"><div class="k">Client</div><div class="v">Union Jack Elevator</div></div>
+    <div class="m"><div class="k">Role</div><div class="v">Marketing &amp; Strategy <em>(group of 4)</em></div></div>
+    <div class="m"><div class="k">Year</div><div class="v">2025</div></div>
+    <div class="m"><div class="k">Outputs</div><div class="v">Blueprint · Calendar · KPIs</div></div>
+  </div>
+</section>
+
+<!-- AIKIFOREST -->
+<section class="sec tall" id="aikiforest" data-nav="campaigns" data-title="Aikiforest">
+  <div class="head r"><span class="ln"></span><span class="lab">Campaign 03 — Aikiforest Aikido · Live client</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">three days off the screen.</h2>
+  <p class="body-c r d2">A full marketing redesign for a Singapore dojo — my longest-running client and the one project here that isn't a concept. Reframed around a parent-pain insight, with a local distribution playbook and a B2B schools deck. Earlier copy lifted 2024 sign-ups +10%.</p>
+  <a class="cmp-cta r d2" href="aikiforest.html">Read the case study →</a>
+  <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
+    <div class="m"><div class="k">Client</div><div class="v">Aikiforest Aikido</div></div>
+    <div class="m"><div class="k">Role</div><div class="v">Brand &amp; Marketing <em>(solo)</em></div></div>
+    <div class="m"><div class="k">Year</div><div class="v">2023 — Present</div></div>
+    <div class="m"><div class="k">Outputs</div><div class="v">Brand · Campaign · Schools deck</div></div>
+  </div>
+</section>
+
+<!-- STARBUCKS -->
+<section class="sec tall" id="starbucks" data-nav="campaigns" data-title="Starbucks">
+  <div class="head r"><span class="ln"></span><span class="lab">Campaign 04 — Starbucks Singapore · Experiential</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(34px,7vw,104px)">bean there, met you.</h2>
+  <p class="body-c r d2">A two-day Valentine's experiential event at PLQ Plaza, answering a fourth quarter of profit decline. SWOT-led positioning, the "Felicia Tay" persona, five stations and an earn-it mug built to keep working after everyone went home.</p>
+  <a class="cmp-cta r d2" href="starbucks.html">Read the case study →</a>
+  <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
+    <div class="m"><div class="k">Client</div><div class="v">Starbucks Singapore</div></div>
+    <div class="m"><div class="k">Role</div><div class="v">Analysis · Persona · Social <em>(pair)</em></div></div>
+    <div class="m"><div class="k">Year</div><div class="v">2026</div></div>
+    <div class="m"><div class="k">Outputs</div><div class="v">Two-day event &amp; rollout</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec tall" id="about" data-nav="about" data-title="About">
+  <div class="head r"><span class="ln"></span><span class="lab">About — the path</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(30px,5.5vw,80px)">from singapore to bangkok, the long way round.</h2>
+  <div class="tl">
+    <div class="node r"><div class="yr">2023 — 2026</div><h4>singapore</h4><div class="where">Temasek Polytechnic — Diploma in Marketing</div><p>Distinction in fundamentals, grounded in consumer psychology. The habit that stuck: research before instinct.</p></div>
+    <div class="node r"><div class="yr">2023 →</div><h4>marketing</h4><div class="where">Aikiforest · Union Jack · Starbucks · Doki Doki</div><p>First real brand work. I stopped asking "how do we sell this?" and started asking "why would anyone care?"</p></div>
+    <div class="node r"><div class="yr">2025</div><h4>agency</h4><div class="where">Client-side strategy &amp; research</div><p>Competitor audits, a 36-company SEA market map, pitch concepts, business-development trips as far as Ciclope Berlin.</p></div>
+    <div class="node r"><div class="yr">2025 →</div><h4>bangkok</h4><div class="where">Golden Eye Corp · Bloomfilm Design</div><p>I moved. New language, new market — you read a culture best from just outside it.</p></div>
+    <div class="node r"><div class="yr">2026</div><h4>writing</h4><div class="where">Spec features, Time Out style</div><p>Original reporting on Bangkok nightlife and food — on-record quotes, every claim fact-checked.</p></div>
+    <div class="node r"><div class="yr">2026 →</div><h4>founder</h4><div class="where">grlsmeetwrld — co-founder &amp; creative director</div><p>A community brand for women in their twenties. I built the brand and the room. The launch dinner sold out in 72 hours.</p></div>
+    <div class="node r"><div class="yr">now</div><h4>ai</h4><div class="where">Higgsfield · prompt design · creative testing</div><p>AI as a studio, not a shortcut — moving from instinct to artefact in hours, so the strategy still leads.</p></div>
+  </div>
+</section>
+
+<!-- THOUGHTS -->
+<section class="sec tall thoughts" id="thoughts" data-nav="thoughts" data-title="Thoughts">
+  <div class="head r"><span class="ln"></span><span class="lab">Editorial Studio — Dispatches · Bangkok Bureau</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(30px,5vw,76px)">field notes, on the record.</h2>
+  <div class="archive r d1">
+    <article class="arc" tabindex="0">
+      <div class="arc-head">
+        <span class="cat">Nightlife</span>
+        <h3>Bangkok's coolest new night out is stone-cold sober.</h3>
+        <span class="meta">2025<br>Bangkok</span>
       </div>
-    </div>
-  </section>
+      <div class="arc-exp"><div class="inner">
+        <div class="photo ph-night"><span>Placeholder — your photo here</span></div>
+        <p class="excerpt">A new generation of Bangkok night-owls is trading the bar for the bath — cold plunges, breathwork and 6am company. I spent an evening at the club turning sobriety into the city's most wanted reservation, on record with the people building it.<span class="src">Original reporting · The Ice Bath Club</span></p>
+      </div></div>
+    </article>
+    <article class="arc" tabindex="0">
+      <div class="arc-head">
+        <span class="cat">Neighbourhoods</span>
+        <h3>On Song Wat, the makers are saving the street the city forgot.</h3>
+        <span class="meta">2025<br>Bangkok</span>
+      </div>
+      <div class="arc-exp"><div class="inner">
+        <div class="photo ph-river"><span>Placeholder — your photo here</span></div>
+        <p class="excerpt">A century-old riverside trading street had been left to rust. Then the makers moved in — roasters, designers, a new kind of shophouse. A walk down Song Wat with the operators rewriting what the lane is for.<span class="src">Original reporting · Song Wat</span></p>
+      </div></div>
+    </article>
+    <article class="arc" tabindex="0">
+      <div class="arc-head">
+        <span class="cat">Food &amp; Drink</span>
+        <h3>The bottle behind Bangkok's best cocktails is now made in Bangkok.</h3>
+        <span class="meta">2026<br>Bangkok</span>
+      </div>
+      <div class="arc-exp"><div class="inner">
+        <div class="photo ph-drink"><span>Placeholder — your photo here</span></div>
+        <p class="excerpt">The spirit pouring across the city's best bars used to be imported. Now it's distilled a few districts away. I traced one bottle from still to shaker, on record with the bartenders who switched.<span class="src">Original reporting · Socials Sukhumvit</span></p>
+      </div></div>
+    </article>
+  </div>
+</section>
 
-  <!-- ===== INTRO (editor's note) ===== -->
-  <section class="section--tight" id="intro">
-    <div class="wrap">
-      <p class="intro__note reveal">I'm Maxine — a marketing strategist, web designer and newsletter writer. Brand work for jewellery, wellness and experiential clients, <em>clean, fast websites</em> for owner-led businesses, and editorial newsletters companies' readers actually open.</p>
-    </div>
-  </section>
+<!-- NEWSLETTERS -->
+<section class="sec" id="newsletters" data-nav="thoughts" data-title="Newsletters">
+  <div class="head r"><span class="ln"></span><span class="lab">Editorial Studio — Newsletters</span></div>
+  <h2 class="big-h r d1" style="font-size:clamp(30px,5.5vw,84px)">letters parents actually read.</h2>
+  <p class="body-c r d2">A done-for-you parent-newsletter service for kids' enrichment studios — writing, single-page editorial design and sending, off the owner's plate. Tap any sample to view the full newsletter.</p>
+  <div class="desk">
+    <a class="env-wrap r" href="https://maxineisaac.github.io/assets/gallery-music.png" target="_blank" rel="noopener" aria-label="Music studio newsletter sample">
+      <span class="preview"><img src="https://maxineisaac.github.io/assets/gallery-music.png" alt="Sample newsletter for a music studio" loading="lazy"></span>
+      <span class="env"><span class="flap"></span><span class="stamp"><span class="e">🎵</span><span class="v">PAR AVION</span></span><span class="pm">grlsmeet · sg</span><span class="addr"><span class="to">to: the music families</span><span class="ln"></span><span class="ln s"></span></span></span>
+    </a>
+    <a class="env-wrap r d1" href="https://maxineisaac.github.io/assets/gallery-swim.png" target="_blank" rel="noopener" aria-label="Swim school newsletter sample">
+      <span class="preview"><img src="https://maxineisaac.github.io/assets/gallery-swim.png" alt="Sample newsletter for a swim studio" loading="lazy"></span>
+      <span class="env"><span class="flap"></span><span class="stamp"><span class="e">🏊</span><span class="v">PAR AVION</span></span><span class="pm">first class</span><span class="addr"><span class="to">to: the swim families</span><span class="ln"></span><span class="ln s"></span></span></span>
+    </a>
+    <a class="env-wrap r d2" href="https://maxineisaac.github.io/assets/gallery-art.png" target="_blank" rel="noopener" aria-label="Art studio newsletter sample">
+      <span class="preview"><img src="https://maxineisaac.github.io/assets/gallery-art.png" alt="Sample newsletter for an art studio" loading="lazy"></span>
+      <span class="env"><span class="flap"></span><span class="stamp"><span class="e">🎨</span><span class="v">PAR AVION</span></span><span class="pm">studio mail</span><span class="addr"><span class="to">to: the art families</span><span class="ln"></span><span class="ln s"></span></span></span>
+    </a>
+    <a class="env-wrap r d3" href="https://maxineisaac.github.io/assets/gallery-gym.png" target="_blank" rel="noopener" aria-label="Gymnastics newsletter sample">
+      <span class="preview"><img src="https://maxineisaac.github.io/assets/gallery-gym.png" alt="Sample newsletter for a gymnastics studio" loading="lazy"></span>
+      <span class="env"><span class="flap"></span><span class="stamp"><span class="e">🤸</span><span class="v">PAR AVION</span></span><span class="pm">first class</span><span class="addr"><span class="to">to: the gym families</span><span class="ln"></span><span class="ln s"></span></span></span>
+    </a>
+    <a class="env-wrap r d4" href="https://maxineisaac.github.io/assets/gallery-dance.png" target="_blank" rel="noopener" aria-label="Dance studio newsletter sample">
+      <span class="preview"><img src="https://maxineisaac.github.io/assets/gallery-dance.png" alt="Sample newsletter for a dance studio" loading="lazy"></span>
+      <span class="env"><span class="flap"></span><span class="stamp"><span class="e">💃</span><span class="v">PAR AVION</span></span><span class="pm">studio mail</span><span class="addr"><span class="to">to: the dance families</span><span class="ln"></span><span class="ln s"></span></span></span>
+    </a>
+  </div>
+  <p class="env-hint r d2">↑ hover to peek · click to open the newsletter</p>
+  <div class="nl-foot">
+    <p class="testi r">"Maxine has a rare gift for capturing a voice — warm, clear, and never generic."<span>— Aiza, Aikiforest Aikido</span></p>
+    <a class="cta r d1" href="https://maxineisaac.github.io/newsletters.html" target="_blank" rel="noopener">See the full studio →</a>
+  </div>
+</section>
 
-  <!-- ===== MARQUEE ===== -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span>Brand Strategy</span><span class="star">✦</span>
-      <span>Social Content</span><span class="star">✦</span>
-      <span>Experiential</span><span class="star">✦</span>
-      <span>AI-Assisted</span><span class="star">✦</span>
-      <span>Web Design</span><span class="star">✦</span>
-      <span>Editorial</span><span class="star">✦</span>
-      <span>Brand Strategy</span><span class="star">✦</span>
-      <span>Social Content</span><span class="star">✦</span>
-      <span>Experiential</span><span class="star">✦</span>
-      <span>AI-Assisted</span><span class="star">✦</span>
-      <span>Web Design</span><span class="star">✦</span>
-      <span>Editorial</span><span class="star">✦</span>
+<!-- WEB DESIGN -->
+<section class="sec tall design" id="design" data-nav="design" data-title="Web Design">
+  <div class="head r"><span class="ln"></span><span class="lab">Freelance Web Design · Two-week turnarounds</span></div>
+  <div class="lead-row">
+    <h2 class="big-h r d1" style="font-size:clamp(30px,5.5vw,84px)">websites for owner-led brands that want better.</h2>
+  </div>
+  <p class="body-c r d2">I run a separate studio for freelance web design — with live work, services and pricing. The short version: clean, fast, considered sites for small businesses, AI-assisted under the hood, fair pricing. Singapore · remote anywhere · two-week typical turnaround.</p>
+  <div class="svc">
+    <div class="card r d1"><div class="n">01 — One-page sites</div><h3>one-page sites</h3><p>For solo operators, services and pre-launch brands. A single page that loads instantly, says what you do, and gets people to message you.</p><div class="price">5–7 days · from SGD 600</div></div>
+    <div class="card r d2"><div class="n">02 — Multi-page sites</div><h3>multi-page sites</h3><p>Home, work, about, contact. For small businesses that need room to show what they do — built to be easy to update in plain language.</p><div class="price">10–14 days · from SGD 1,200</div></div>
+    <div class="card r d3"><div class="n">03 — Redesigns</div><h3>redesigns</h3><p>Your site exists but it's dated, slow, or hard to read on phones. I rebuild it with the same content, designed properly — usually in less time than a new build.</p><div class="price">7–10 days · from SGD 900</div></div>
+  </div>
+  <div class="dmarquee r d2">
+    <div class="tk"><span>clean<i>✦</i></span><span>fast<i>✦</i></span><span>considered<i>✦</i></span><span>two-week turnarounds<i>✦</i></span><span>owner-led brands<i>✦</i></span><span>clean<i>✦</i></span><span>fast<i>✦</i></span><span>considered<i>✦</i></span><span>two-week turnarounds<i>✦</i></span><span>owner-led brands<i>✦</i></span></div>
+  </div>
+  <div class="cta-row r d2">
+    <a class="primary" href="https://maxineisaac.github.io/maxinesdesignwrld/" target="_blank" rel="noopener">Visit the web design site ↗</a>
+    <a class="sec-link" href="https://maxineisaac.github.io/contact.html" target="_blank" rel="noopener">Start a brief →</a>
+  </div>
+  <p class="thisnote r d3"><b>Built the same way yours would be.</b> Both this marketing portfolio and the freelance design site are hand-coded, hosted free on GitHub Pages, custom-typed and fast on mobile — no template, no platform lock-in. If you like how either reads, that's the work. <a href="https://maxineisaac.github.io/maxinesdesignwrld/" target="_blank" rel="noopener">See the freelance site ↗</a></p>
+</section>
+
+<!-- GRLSMEETWRLD — its own magenta world -->
+<section class="sec grls-world" id="grls" data-nav="grls" data-title="grlsmeetwrld">
+  <div class="grls-inner">
+    <div class="ctag lab r">Vol. 02 — Not a brief. My own venture.</div>
+    <h2 class="grls-h r d1">an editorial brand for women in their twenties who want <span class="u">depth</span>, not networking.</h2>
+    <p class="grls-tag r d2">for a generation that's read enough networking advice.</p>
+    <a class="grls-cta r d2" href="grlsmeetwrld.html">Read more — what I built &amp; the gallery →</a>
+    <div class="grls-crow r d3">
+      <div class="c"><div class="k">Brand</div><div class="v">grlsmeetwrld <em>(co-founded)</em></div></div>
+      <div class="c"><div class="k">Role</div><div class="v">Co-Founder &amp; Creative Director</div></div>
+      <div class="c"><div class="k">Span</div><div class="v">2026 — Present</div></div>
+      <div class="c"><div class="k">Status</div><div class="v">Vol. 01 launching</div></div>
+      <div class="c"><div class="k">Location</div><div class="v">Bangkok · Singapore</div></div>
     </div>
   </div>
+</section>
 
-  <!-- ===== FACT BOX ===== -->
-  <section class="section--tight">
-    <div class="wrap">
-      <div class="facts reveal">
-        <div class="fact"><span class="fact__num">08<em>+</em></span><span class="fact__label">Brand projects shipped</span></div>
-        <div class="fact"><span class="fact__num">02</span><span class="fact__label">Markets — Singapore, Bangkok</span></div>
-        <div class="fact"><span class="fact__num">100<em>%</em></span><span class="fact__label">Research-led approach</span></div>
-        <div class="fact"><span class="fact__num">2<em>wk</em></span><span class="fact__label">Web-design turnaround</span></div>
-      </div>
+<!-- FUTURE -->
+<section class="sec future" id="future" data-nav="future" data-title="Future">
+  <canvas id="cosmos"></canvas>
+  <div class="spot" id="spot"></div>
+  <div class="fwords" id="fwords">
+    <span class="fw" data-x="13" data-y="24">ai</span>
+    <span class="fw" data-x="72" data-y="30">culture</span>
+    <span class="fw" data-x="26" data-y="74">behaviour</span>
+    <span class="fw" data-x="76" data-y="72">attention</span>
+    <span class="fw" data-x="50" data-y="14">story</span>
+  </div>
+  <div class="inner">
+    <div class="head r"><span class="ln" style="background:rgba(237,237,242,.5)"></span><span class="lab">Future Lab</span></div>
+    <h2 class="big-h r d1" style="color:#F4F4F8">where ai meets culture &amp; <span class="em">human behaviour</span>.</h2>
+    <p class="body-c r d2" style="color:rgba(237,237,242,.6)">Move your cursor — it becomes a spotlight. The questions I'm working on next don't sit still: AI used as a studio, not a shortcut; brands read in cultural context; the human insight underneath every campaign — pulling toward each other like a constellation.</p>
+  </div>
+</section>
+
+<!-- CONTACT — sunrise -->
+<section class="sec contact" id="contact" data-nav="contact" data-title="Contact">
+  <div class="sunrise">
+    <h2 class="big r">and that's where i am, for now.</h2>
+    <div class="roles r d1">Singapore ↔ Bangkok &nbsp;·&nbsp; Marketing strategist &nbsp;·&nbsp; Writer &nbsp;·&nbsp; Founder</div>
+    <div class="ask r d2">have a story? have a brief? have an idea? <b>let's talk.</b></div>
+    <div class="float-links r d2">
+      <a href="mailto:maxine_isaac@yahoo.com" style="--d:5.2s;--dl:-0.4s"><span>✉</span> Email</a>
+      <a href="https://www.linkedin.com/in/maxineisaac" target="_blank" rel="noopener" style="--d:6.1s;--dl:-1.6s"><span>↗</span> LinkedIn</a>
+      <a href="https://www.instagram.com/grlsmeetwrld/" target="_blank" rel="noopener" style="--d:4.7s;--dl:-2.4s"><span>📷</span> Instagram</a>
+      <a href="https://maxineisaac.github.io/grlsmeetwrld/" target="_blank" rel="noopener" style="--d:5.6s;--dl:-0.9s"><span>✦</span> grlsmeetwrld</a>
     </div>
-  </section>
+    <div class="colophon r d3">© 2026 Maxine Isaac · Singapore → Bangkok · Set in Fraunces, Inter &amp; Space Mono · Issue Nº 01</div>
+  </div>
+</section>
 
-  <!-- ===== DUAL PATHS ===== -->
-  <section class="section--tight">
-    <div class="wrap">
-      <div class="paths rule-top reveal">
-        <a class="path" href="work.html">
-          <span class="marker path__marker">§ 01</span>
-          <h3 class="path__title">Marketing <em>case studies</em></h3>
-          <p class="path__desc">Five projects across brand strategy, social, experiential and AI-assisted storytelling — for legacy B2B, wellness, sportswear and F&amp;B brands.</p>
-          <span class="path__link">For recruiters &amp; brand teams <span class="arr" aria-hidden="true">→</span></span>
-        </a>
-        <a class="path" href="https://maxineisaac.github.io/maxinesdesignwrld/" target="_blank" rel="noopener">
-          <span class="marker path__marker">§ 02</span>
-          <h3 class="path__title">Freelance <em>web design</em></h3>
-          <p class="path__desc">Clean, fast, considered websites for small businesses. AI-assisted build, designer's eye, two-week turnarounds, fair pricing.</p>
-          <span class="path__link">For owner-led businesses <span class="arr" aria-hidden="true">↗</span></span>
-        </a>
-        <a class="path" href="newsletters.html">
-          <span class="marker path__marker">§ 03</span>
-          <h3 class="path__title">Parent <em>newsletters</em></h3>
-          <p class="path__desc">Warm, done-for-you parent newsletters for kids' studios. I take it off your plate — writing, design, layout — so your community stays close while you focus on teaching.</p>
-          <span class="path__link">For kids' studios <span class="arr" aria-hidden="true">→</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
+<div class="lightbox" id="lightbox">
+  <button class="x" id="lbClose">✕ Close</button>
+  <img id="lbImg" alt="Newsletter sample">
+  <div class="cap" id="lbCap"></div>
+</div>
 
-  <!-- ===== COVER STORY ===== -->
-  <section class="section rule-top">
-    <div class="wrap">
-      <div class="shead reveal">
-        <div class="shead__left">
-          <span class="marker">Cover Story · 01</span>
-          <h2>A campaign for a brand<br>that <em>nobody</em> noticed.</h2>
-        </div>
-        <a href="uje.html" class="link-arrow">Read the dispatch <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-      <a class="cover reveal reveal-d1" href="uje.html">
-        <div class="cover__visual"><span class="cover__caption">Fig. 01 — "Lift the Future" campaign</span></div>
-        <div class="cover__body">
-          <div class="cover__meta"><span>Brand Strategy</span><span>Social</span><span>Group of 4</span><span>2025</span></div>
-          <h3 class="cover__title">Union Jack Elevator — repositioning a legacy B2B brand for <em>consumer</em> visibility.</h3>
-          <p class="cover__desc">A three-month "Lift the Future" campaign turning a 30-year-old lift company into a safety educator. Built on primary research with 72 residents and homeowners — 78% unfamiliar with lift safety, 75% had been stuck in one.</p>
-          <span class="link-arrow">Read case study <span class="arr" aria-hidden="true">→</span></span>
-        </div>
-      </a>
-    </div>
-  </section>
+<script>
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(pointer:fine)').matches;
+const sections = [...document.querySelectorAll('.sec')];
 
-  <!-- ===== SELECTED WORK INDEX ===== -->
-  <section class="section rule-top">
-    <div class="wrap">
-      <div class="shead reveal">
-        <div class="shead__left">
-          <span class="marker">Selected Work</span>
-          <h2>Five briefs.<br>Five <em>different</em> answers.</h2>
-        </div>
-        <a href="work.html" class="link-arrow">All work <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-      <div class="index reveal reveal-d1">
-        <a class="index__row" href="uje.html">
-          <span class="index__num">01</span>
-          <span><span class="index__title">Union Jack Elevator</span><span class="index__tags">Brand strategy · Social</span></span>
-          <span class="index__year">2025 <span class="index__arrow" aria-hidden="true">→</span></span>
-        </a>
-        <a class="index__row" href="doki-doki.html">
-          <span class="index__num">02</span>
-          <span><span class="index__title">Doki Doki Juice</span><span class="index__tags">Content audit · Social</span></span>
-          <span class="index__year">2024 <span class="index__arrow" aria-hidden="true">→</span></span>
-        </a>
-        <a class="index__row" href="nike.html">
-          <span class="index__num">03</span>
-          <span><span class="index__title">Nike — Step Into Strength</span><span class="index__tags">Storytelling · AI-assisted</span></span>
-          <span class="index__year">2025 <span class="index__arrow" aria-hidden="true">→</span></span>
-        </a>
-        <a class="index__row" href="starbucks.html">
-          <span class="index__num">04</span>
-          <span><span class="index__title">Starbucks — Bean There, Met You</span><span class="index__tags">Experiential · Persona</span></span>
-          <span class="index__year">2026 <span class="index__arrow" aria-hidden="true">→</span></span>
-        </a>
-        <a class="index__row" href="aikiforest.html">
-          <span class="index__num">05</span>
-          <span><span class="index__title">Aikiforest Aikido <span class="index__flag">Live client</span></span><span class="index__tags">Brand &amp; Marketing · Real client</span></span>
-          <span class="index__year">2023–Present <span class="index__arrow" aria-hidden="true">→</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
+/* selected work — cursor-following preview image (A24 style) */
+(function(){
+  const list=document.getElementById('tocList'),prev=document.getElementById('tocPrev');
+  if(!list||!prev||!fine||reduce)return;
+  let tx=0,ty=0,px=0,py=0,active=false;
+  list.querySelectorAll('.toc-row').forEach(row=>{
+    row.addEventListener('pointerenter',()=>{prev.style.background=row.dataset.bg;prev.classList.add('on');active=true;});
+  });
+  list.addEventListener('pointermove',e=>{tx=e.clientX+90;ty=e.clientY;});
+  list.addEventListener('pointerleave',()=>{prev.classList.remove('on');active=false;});
+  (function loop(){px+=(tx-px)*.16;py+=(ty-py)*.16;
+    prev.style.left=px+'px';prev.style.top=py+'px';requestAnimationFrame(loop);})();
+})();
 
-  <!-- ===== BOLD COLOUR BAND ===== -->
-  <section class="bold-band reveal">
-    <div class="wrap">
-      <div>
-        <span class="label" style="color: var(--on-accent);">Open to work</span>
-        <h2>Marketing that earns its <em>attention.</em></h2>
-        <p>Research-led strategy, social that ties to evidence, and websites built with the same care. Available for full-time marketing roles and freelance briefs.</p>
-      </div>
-      <div><a class="btn" href="contact.html">Start a conversation <span class="arr" aria-hidden="true">→</span></a></div>
-    </div>
-  </section>
+/* newsletter lightbox — click an envelope to open the newsletter on the page */
+(function(){
+  const lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+  if(!lb)return;
+  function open(src,label){img.src=src;cap.textContent=label;lb.classList.add('on');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('on');document.body.style.overflow='';}
+  document.querySelectorAll('.env-wrap').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();open(a.getAttribute('href'),(a.getAttribute('aria-label')||'').replace(' newsletter sample',''));});
+  });
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.getElementById('lbClose').addEventListener('click',close);
+  addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+const navLinks = [...document.querySelectorAll('.nav .links a')];
 
-  <!-- ===== FROM THE DESK ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="desk reveal">
-        <div class="desk__intro">
-          <span class="marker">From the Desk</span>
-          <h2>A small <em>now</em> page.</h2>
-          <p>The things filling the margins of my week right now. Updated whenever something changes.</p>
-        </div>
-        <div class="desk__list">
-          <div class="desk__item"><span class="desk__label">Building</span><span class="desk__value"><em>grlsmeetwrld</em> — a community for young women, co-founded with a friend</span></div>
-          <div class="desk__item"><span class="desk__label">Reading</span><span class="desk__value">Olivia Laing, <em>The Lonely City</em></span></div>
-          <div class="desk__item"><span class="desk__label">Listening</span><span class="desk__value">Faye Webster · Mk.gee · <em>Ichiko Aoba</em></span></div>
-          <div class="desk__item"><span class="desk__label">Writing</span><span class="desk__value">Short fiction on <em>Substack</em> — pitching i-D &amp; Dazed</span></div>
-          <div class="desk__item"><span class="desk__label">Travel</span><span class="desk__value">Bangkok in <em>July</em> · Tokyo in October</span></div>
-          <div class="desk__item"><span class="desk__label">Open to</span><span class="desk__value"><em>Full-time</em> marketing roles &amp; freelance web design briefs</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+/* reveals */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
 
-  <!-- ===== ABOUT PREVIEW ===== -->
-  <section class="section rule-top" id="about">
-    <div class="wrap">
-      <span class="marker">About</span>
-      <div class="about-layout reveal">
-        <div class="about-layout__left">
-          <h2 class="about-layout__title">I work across <em>brand strategy</em>, social, and the websites that hold them together.</h2>
-        </div>
-        <div class="about-layout__right">
-          <p class="about-layout__lede">Trained in marketing with hands-on experience in jewellery, wellness, sustainability and experiential design.</p>
-          <p class="about-layout__bio">I write strategy that ties to evidence, build social work that ties to research, and design websites with the same care. Currently with Bloomfilm Design; open to full-time marketing roles and freelance briefs.</p>
-          <div class="about-layout__tags" aria-label="Areas of work">
-            <span>Brand strategy</span>
-            <span>Social content</span>
-            <span>Experiential</span>
-            <span>AI-assisted</span>
-            <span>Web design</span>
-            <span>Newsletters</span>
-          </div>
-          <a href="about.html" class="link-arrow">More about me <span class="arr" aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
+/* nav anchors smooth (respect snap) */
+document.querySelectorAll('[data-link]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});});
+});
 
-  <!-- ===== SUBSCRIBE ===== -->
-  <section class="section rule-top">
-    <div class="wrap">
-      <div class="subscribe reveal">
-        <span class="marker">The Dispatch</span>
-        <h2>Notes from the <em>studio.</em></h2>
-        <p>Occasional dispatches — new projects, things I'm reading, the odd essay. No spam, no schedule.</p>
-        <form class="subscribe__form" novalidate>
-          <div class="subscribe__row">
-            <input type="email" placeholder="your@email.com" aria-label="Email address" required />
-            <button type="submit">Subscribe</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+/* active section → nav + dots */
+const navTargets=['index','campaigns','about','thoughts','design','grls','future','contact'];
+const dotsWrap=document.getElementById('dots');
+navTargets.forEach(id=>{const b=document.createElement('button');b.dataset.t=id;
+  b.title=id;b.addEventListener('click',()=>document.getElementById(id).scrollIntoView({behavior:'smooth'}));
+  dotsWrap.appendChild(b);});
+const dotBtns=[...dotsWrap.children];
+let current='index';
+function setActive(nav){
+  if(nav===current)return;current=nav;
+  navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+nav));
+  dotBtns.forEach(b=>b.classList.toggle('on',b.dataset.t===nav));
+}
+const aio=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){setActive(e.target.dataset.nav);}});
+},{threshold:.5,rootMargin:'-10% 0px -40% 0px'});
+document.querySelectorAll('[data-nav]').forEach(s=>aio.observe(s));
+setActive('index');
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="foot">
-    <div class="wrap">
-      <div class="foot__top">
-        <div class="foot__big">Let's make<br>something <em>good.</em></div>
-        <div class="foot__col">
-          <h5>Navigate</h5>
-          <a href="work.html">Marketing Work</a>
-          <a href="services.html">Web Design</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="foot__col">
-          <h5>Elsewhere</h5>
-          <a href="mailto:maxine_isaac@yahoo.com">Email</a>
-          <a href="https://www.instagram.com/grlsmeetwrld/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.linkedin.com/in/maxineisaac" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-      <div class="foot__bottom">
-        <span>© <span data-year>2026</span> Maxine Isaac. Singapore.</span>
-        <span class="foot__colophon">Set in Fraunces &amp; Inter. Hand-coded in HTML &amp; CSS. Singapore, MMXXVI.</span>
-      </div>
-    </div>
-  </footer>
+/* cover — Apple-style scroll morph: remember → care → share → act */
+const morphWords=['remember','care','share','act'];
+const morphEl=document.getElementById('morph');
+const stage=document.getElementById('index');
+let morphIdx=0;
+function onMorph(){
+  const total=stage.offsetHeight-innerHeight;
+  const prog=total>0?Math.min(1,Math.max(0,(-stage.getBoundingClientRect().top)/total)):0;
+  const idx=Math.min(morphWords.length-1,Math.floor(prog*morphWords.length));
+  if(idx===morphIdx)return;morphIdx=idx;
+  if(reduce){morphEl.textContent=morphWords[idx];return;}
+  morphEl.style.opacity='0';morphEl.style.transform='translateY(14px)';
+  setTimeout(()=>{morphEl.textContent=morphWords[idx];morphEl.style.opacity='1';morphEl.style.transform='none';},210);
+}
+addEventListener('scroll',onMorph,{passive:true});onMorph();
 
-  <script src="script.js"></script>
+/* next button → next section */
+document.getElementById('next').addEventListener('click',()=>{
+  const y=scrollY+innerHeight*0.5;
+  const nextSec=sections.find(s=>s.offsetTop>y+10)||sections[sections.length-1];
+  nextSec.scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+/* custom cursor */
+const cur=document.getElementById('cursor');
+if(fine && !reduce){
+  let tx=innerWidth/2,ty=innerHeight/2,cx=tx,cy=ty;
+  addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;},{passive:true});
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('pointerenter',()=>cur.classList.add('big'));
+    el.addEventListener('pointerleave',()=>cur.classList.remove('big'));
+  });
+  (function loop(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;
+    cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
+}else{cur.style.display='none';document.body.style.cursor='auto';}
+
+/* FUTURE LAB — black cosmos: spotlight + floating words + constellation */
+const future=document.getElementById('future');
+const spot=document.getElementById('spot');
+const fws=[...document.querySelectorAll('.future .fw')];
+fws.forEach(w=>{w.style.left=w.dataset.x+'%';w.style.top=w.dataset.y+'%';w.style.transform='translate(-50%,-50%)';});
+let lmx=.5,lmy=.5;
+future.addEventListener('pointermove',e=>{
+  const r=future.getBoundingClientRect();
+  const x=e.clientX-r.left,y=e.clientY-r.top;lmx=x/r.width;lmy=y/r.height;
+  spot.style.setProperty('--mx2',x+'px');spot.style.setProperty('--my2',y+'px');
+  if(reduce)return;
+  fws.forEach(w=>{const wr=w.getBoundingClientRect();
+    const wx=wr.left+wr.width/2-r.left,wy=wr.top+wr.height/2-r.top;
+    const dx=wx-x,dy=wy-y,dist=Math.hypot(dx,dy),max=260;
+    if(dist<max){const f=1-dist/max,px=(dx/dist)*f*70,py=(dy/dist)*f*70;
+      w.style.transform=`translate(calc(-50% + ${px}px), calc(-50% + ${py}px))`;
+      w.style.color=`rgba(217,180,107,${.16+f*.6})`;}
+    else{w.style.transform='translate(-50%,-50%)';w.style.color='rgba(244,241,234,.11)';}});
+});
+const cv=document.getElementById('cosmos');
+if(cv){const ctx=cv.getContext('2d');let stars=[],raf=null;
+  function sizeCv(){cv.width=future.clientWidth;cv.height=future.clientHeight;
+    stars=Array.from({length:Math.min(90,Math.floor(cv.width/16))},()=>({
+      x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.4+.4}));}
+  function draw(){ctx.clearRect(0,0,cv.width,cv.height);
+    const mx=lmx*cv.width,my=lmy*cv.height;
+    for(let i=0;i<stars.length;i++){const p=stars[i];
+      const adx=mx-p.x,ady=my-p.y,ad=Math.hypot(adx,ady);
+      if(ad<240){p.vx+=adx/ad*.01;p.vy+=ady/ad*.01;}
+      p.vx*=.99;p.vy*=.99;p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>cv.width)p.vx*=-1;if(p.y<0||p.y>cv.height)p.vy*=-1;
+      for(let j=i+1;j<stars.length;j++){const q=stars[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.hypot(dx,dy);
+        if(d<110){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle=`rgba(217,180,107,${(1-d/110)*.18})`;ctx.lineWidth=.6;ctx.stroke();}}
+      const glow=ad<200?(1-ad/200):0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r+glow*1.4,0,7);
+      ctx.fillStyle=`rgba(${225+glow*25},${190+glow*20},${120+glow*30},${.5+glow*.5})`;ctx.fill();}
+    raf=requestAnimationFrame(draw);}
+  const fObs=new IntersectionObserver(es=>{es.forEach(e=>{
+    if(e.isIntersecting&&!reduce){if(!raf){sizeCv();draw();}}else{if(raf){cancelAnimationFrame(raf);raf=null;}}});},{threshold:.05});
+  fObs.observe(future);addEventListener('resize',()=>{if(raf)sizeCv();});
+}
+</script>
 </body>
 </html>

@@ -1,163 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nike — Step Into Strength · Maxine Isaac</title>
-  <meta name="description" content="A Gen Z mental health campaign concept for Nike, built with AI-assisted ideation. By Maxine Isaac." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nike — Step Into Strength · Maxine Isaac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;--ink:#111111;--ink-soft:#6F6A63;--ink-faint:rgba(17,17,17,.32);
+  --rule:rgba(22,21,15,.15);--sans:'Inter',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;
+  --mx:clamp(20px,5vw,68px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+.mono{font-family:var(--mono)}
+.lab{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;height:58px;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--mx);background:rgba(241,238,229,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar a{text-decoration:none;color:var(--ink)}
+.bar .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.bar .brand{font-weight:700;font-size:15px}
+
+/* hero black */
+.hero{background:var(--paper);color:var(--ink);min-height:80vh;display:flex;flex-direction:column;justify-content:center;
+  padding:calc(58px + 40px) var(--mx) 48px;position:relative;overflow:hidden}
+.hero .htag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.hero h1{font-weight:900;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-size:clamp(50px,12.5vw,180px);
+  display:flex;flex-direction:column;margin-top:16px;color:var(--ink)}
+.hero h1 .o{color:transparent;-webkit-text-stroke:1.6px rgba(17,17,17,.72)}
+.hero .tagline{margin-top:26px;font-size:clamp(18px,2.2vw,28px);font-style:italic;color:var(--ink-soft);max-width:30ch}
+.hero .crow{margin-top:clamp(34px,5vw,56px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid var(--rule);padding-top:18px}
+.hero .crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.hero .crow .v{margin-top:7px;font-size:13px;font-weight:500}
+.hero .crow .v em{font-style:italic;font-weight:400;color:var(--ink-soft)}
+.hero .tile{position:absolute;z-index:0;border-radius:3px;opacity:.55;box-shadow:0 18px 40px rgba(17,17,17,.08)}
+.hero .t1{width:clamp(90px,12vw,180px);aspect-ratio:3/4;right:6%;top:16%;background:linear-gradient(150deg,#e8e3d7,#d7d1c8);animation:f 10s ease-in-out infinite}
+.hero .t2{width:clamp(70px,8vw,120px);aspect-ratio:1/1;right:20%;bottom:16%;background:linear-gradient(150deg,#ece7db,#dbd5ca);animation:f 13s ease-in-out infinite reverse}
+.hero .crow,.hero .tagline,.hero h1,.hero .htag{position:relative;z-index:2}
+@keyframes f{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-24px) rotate(1.5deg)}}
+@media(max-width:780px){.hero .crow{grid-template-columns:repeat(2,1fr);gap:16px}.hero .tile{opacity:.35}}
+
+/* article */
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(56px,8vw,110px) var(--mx)}
+.sec{display:grid;grid-template-columns:130px 1fr;gap:clamp(20px,4vw,64px);padding:clamp(34px,5vw,58px) 0;border-top:1px solid var(--rule)}
+.sec:first-child{border-top:none}
+.sec .idx{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-faint)}
+.sec .idx b{display:block;color:var(--ink);font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
+.sec .body h2{font-weight:800;letter-spacing:-.02em;line-height:1.05;font-size:clamp(24px,3.4vw,44px);text-transform:lowercase;margin-bottom:18px}
+.sec .body p{font-size:clamp(15px,1.5vw,18px);line-height:1.66;color:var(--ink-soft);max-width:62ch}
+.sec .body p+p{margin-top:16px}
+.sec .body p strong{color:var(--ink);font-weight:600}
+.sec .body ul{list-style:none;margin-top:18px;max-width:62ch}
+.sec .body li{position:relative;padding:14px 0 14px 28px;border-top:1px solid var(--rule);font-size:clamp(15px,1.5vw,17px);line-height:1.5}
+.sec .body li::before{content:"";position:absolute;left:0;top:21px;width:10px;height:1px;background:var(--ink)}
+.sec .body li b{font-weight:600}
+@media(max-width:680px){.sec{grid-template-columns:1fr;gap:14px}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:8px 0 22px}
+.stats .s b{font-weight:800;font-size:clamp(34px,5vw,62px);letter-spacing:-.02em;line-height:1;display:block}
+.stats .s span{margin-top:10px;display:block;font-size:13px;line-height:1.4;color:var(--ink-soft)}
+@media(max-width:680px){.stats{grid-template-columns:1fr;gap:18px}}
+.src{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-faint);margin-bottom:8px}
+
+/* pull quote */
+.pull{margin:clamp(40px,7vw,90px) 0;padding:0 var(--mx);text-align:center}
+.pull p{font-weight:800;letter-spacing:-.02em;line-height:1.04;font-size:clamp(30px,6vw,84px);text-transform:lowercase;max-width:16ch;margin:0 auto}
+
+/* note */
+.note{margin-top:22px;border-left:2px solid var(--ink);padding:6px 0 6px 20px}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.note p{margin-top:8px;font-style:italic;color:var(--ink);max-width:60ch;line-height:1.55}
+
+/* foot */
+.foot{border-top:1px solid var(--ink);padding:34px var(--mx);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+.foot a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:3px}
+.foot .col{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-faint)}
+@media(prefers-reduced-motion:reduce){.hero .tile{animation:none}}
+</style>
 </head>
-<body data-page="case-nike">
+<body>
+<div class="bar">
+  <a class="back" href="index.html#nike">← Back to portfolio</a>
+  <a class="brand" href="index.html">Maxine Isaac.</a>
+</div>
 
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="index.html">Maxine Isaac<b>.</b></a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="work.html">Work</a>
-        <a href="services.html">Web Design</a>
-        <a href="newsletters.html">Newsletters</a>
-        <a href="writing.html">Writing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="hero">
+  <span class="tile t1"></span><span class="tile t2"></span>
+  <div class="htag">Case 02 — Nike · Storytelling · AI-Assisted · Spec, 2025</div>
+  <h1><span>step</span><span>into</span><span class="o">strength</span></h1>
+  <p class="tagline">"Every step is a conversation with yourself."</p>
+  <div class="crow">
+    <div class="c"><div class="k">Client</div><div class="v">Nike <em>(spec)</em></div></div>
+    <div class="c"><div class="k">Role</div><div class="v">Concept · Strategy · AI-assisted</div></div>
+    <div class="c"><div class="k">Audience</div><div class="v">Gen Z</div></div>
+    <div class="c"><div class="k">Theme</div><div class="v">Mental health</div></div>
+    <div class="c"><div class="k">Year</div><div class="v">2025</div></div>
+  </div>
+</header>
 
-  <div class="chip chip--bl"><span class="led" aria-hidden="true"></span><span><span data-clock>--:-- SGT</span> · 1°21′N 103°49′E</span></div>
-  <div class="chip chip--br">© <span data-year>2026</span> Maxine Isaac</div>
+<main class="wrap">
 
-  <section class="page-hero case-hero">
-    <div class="wrap">
-      <span class="marker">03 · Brand Storytelling · AI-Assisted · 2025</span>
-      <h1>Running as a <em>conversation</em> with yourself.</h1>
-      <p class="page-hero__lede">Mental health is the marketing topic Gen Z spots fastest — and rejects fastest when it's done wrong. The concept needed an angle that earned its place at the brand rather than borrowed it.</p>
-      <div class="case-meta">
-        <div class="case-meta__item"><h5>Role</h5><p>Brand Storytelling<br>Solo</p></div>
-        <div class="case-meta__item"><h5>Brief</h5><p>AI-Assisted<br>Campaign Ideation</p></div>
-        <div class="case-meta__item"><h5>Year</h5><p>2025</p></div>
-        <div class="case-meta__item"><h5>Outputs</h5><p>Campaign concept<br>Ethical framework</p></div>
-      </div>
-      <div class="case-visual" aria-hidden="true">N</div>
+  <section class="sec">
+    <div class="idx">01<b>Context</b></div>
+    <div class="body">
+      <h2>a brand promise built to survive skepticism.</h2>
+      <p>I built a Gen Z-targeted campaign concept for Nike addressing one of the generation's top-cited concerns: mental health. The challenge was to develop a narrative that felt <strong>authentic rather than exploitative</strong> — given the well-earned skepticism that follows brands using mental health as marketing decoration.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="case-body">
-        <aside class="case-toc">
-          <h4>On this page</h4>
-          <a href="#context">Context</a>
-          <a href="#research">Research</a>
-          <a href="#approach">Approach</a>
-          <a href="#ethics">Ethics</a>
-          <a href="#outputs">Outputs</a>
-          <a href="#outcome">Outcome</a>
-        </aside>
-        <div>
-          <div class="case-section reveal" id="context">
-            <h2><span class="num">01</span>Context</h2>
-            <p>I built a Gen Z-targeted campaign concept for Nike addressing one of the generation's top-cited concerns: mental health. The challenge was to develop a narrative that felt authentic rather than exploitative, given the well-earned skepticism that follows brands using mental health as marketing decoration.</p>
-          </div>
+  <section class="sec">
+    <div class="idx">02<b>Research</b></div>
+    <div class="body">
+      <h2>the numbers set the boundaries.</h2>
+      <p>I grounded the concept in evidence — then used the same numbers to set hard limits on what the work could and couldn't do.</p>
+      <div class="src">Sources — Deloitte · APA · McKinsey · Sprout Social</div>
+      <div class="stats">
+        <div class="s"><b>90%</b><span>of Gen Z believe mental health is critical.</span></div>
+        <div class="s"><b>72%</b><span>prioritise authenticity over brand image.</span></div>
+        <div class="s"><b>54%</b><span>feel overwhelmed by social media.</span></div>
+      </div>
+      <p>That last number became the most important one. <strong>If the audience is already overwhelmed by social, a campaign that demands their attention loudly is part of the problem.</strong></p>
+    </div>
+  </section>
 
-          <div class="case-section reveal" id="research">
-            <h2><span class="num">02</span>Research</h2>
-            <p>I grounded the concept in evidence from Deloitte, APA, McKinsey, and Sprout Social — and then used the same numbers to set hard boundaries for what the work could and couldn't do.</p>
-            <ul class="case-bullets">
-              <li><strong>90%</strong> of Gen Z believe mental health is critical.</li>
-              <li><strong>72%</strong> prioritise authenticity over brand image.</li>
-              <li><strong>54%</strong> feel overwhelmed by social media.</li>
-            </ul>
-            <p>That last number became the most important one. If the audience is already overwhelmed by social, a campaign that demands their attention loudly is part of the problem.</p>
-          </div>
+  <div class="pull"><p>Every step is a conversation with yourself.</p></div>
 
-          <div class="pullquote reveal">Every step is a conversation with yourself.</div>
+  <section class="sec">
+    <div class="idx">03<b>Approach</b></div>
+    <div class="body">
+      <h2>five frameworks, one quiet idea.</h2>
+      <p>I used AI to generate five storytelling frameworks — Empowerment Through Sport, Innovation, Aspiration, Sustainability, and Unity. I picked the first and adapted it into <strong>Step Into Strength</strong>: a narrative following a young person who uses running as a tool for mental clarity rather than physical performance.</p>
+      <p>The tagline — "Every step is a conversation with yourself" — was written explicitly to avoid the guilt-inducing tone common in sportswear advertising. Running here is not productivity. It's not goals. It's a quiet form of self-talk.</p>
+    </div>
+  </section>
 
-          <div class="case-section reveal" id="approach">
-            <h2><span class="num">03</span>Approach</h2>
-            <p>I used AI to generate five storytelling frameworks: Empowerment Through Sport, Innovation, Aspiration, Sustainability, and Unity. I picked the first and adapted it into <em>Step Into Strength</em> — a narrative following a young person who uses running as a tool for mental clarity rather than physical performance.</p>
-            <p>The tagline — <strong>"Every step is a conversation with yourself"</strong> — was written explicitly to avoid the guilt-inducing tone common in sportswear advertising. Running here is not productivity. It's not goals. It's a quiet form of self-talk.</p>
-          </div>
+  <section class="sec">
+    <div class="idx">04<b>Ethical Framework</b></div>
+    <div class="body">
+      <h2>four guardrails, applied to every output.</h2>
+      <ul>
+        <li><b>Inclusive language</b> that avoided stigma or clinical framing.</li>
+        <li><b>A non-elite protagonist</b> to broaden who counts as an athlete.</li>
+        <li><b>Subtle product placement</b> to avoid commodifying mental health.</li>
+        <li><b>Alignment with Nike's existing Mind SETS initiative</b> for continuity and authenticity.</li>
+      </ul>
+      <p style="margin-top:18px">Each AI-generated alternative was either folded in or explicitly cut, with reasoning documented — useful both as a creative artefact and as a marker of the thinking behind the choices.</p>
+    </div>
+  </section>
 
-          <div class="case-section reveal" id="ethics">
-            <h2><span class="num">04</span>Ethical Framework</h2>
-            <p>Four guardrails, applied across every output:</p>
-            <ul class="case-bullets">
-              <li><strong>Inclusive language</strong> that avoided stigma or clinical framing.</li>
-              <li><strong>A non-elite protagonist</strong> to broaden who counts as an athlete.</li>
-              <li><strong>Subtle product placement</strong> to avoid commodifying mental health.</li>
-              <li><strong>Alignment with Nike's existing Mind SETS initiative</strong> for continuity and authenticity.</li>
-            </ul>
-            <p>Each AI-generated alternative was either folded in or explicitly cut, with reasoning documented — useful both as a creative artefact and as a marker of the thinking behind the choices.</p>
-          </div>
+  <section class="sec">
+    <div class="idx">05<b>Outputs</b></div>
+    <div class="body">
+      <h2>what shipped.</h2>
+      <ul>
+        <li>Campaign theme, key messages, and tagline</li>
+        <li>TikTok / Reels split-screen content concept</li>
+        <li>#RunForClarity UGC hashtag</li>
+        <li>Mindfulness integration recommendation for the Nike app</li>
+        <li>Partnership scope with mental health organisations</li>
+        <li>Documented reasoning for inclusion / exclusion of each AI alternative</li>
+      </ul>
+    </div>
+  </section>
 
-          <div class="case-section reveal" id="outputs">
-            <h2><span class="num">05</span>Outputs</h2>
-            <ul class="case-bullets">
-              <li>Campaign theme, key messages, and tagline</li>
-              <li>TikTok / Reels split-screen content concept</li>
-              <li>#RunForClarity UGC hashtag</li>
-              <li>Mindfulness integration recommendation for the Nike app</li>
-              <li>Partnership scope with mental health organisations</li>
-              <li>Documented reasoning for inclusion / exclusion of each AI alternative</li>
-            </ul>
-          </div>
-
-          <div class="case-section reveal" id="outcome">
-            <h2><span class="num">06</span>Outcome</h2>
-            <div class="outcome">
-              <h4>Deliverable</h4>
-              <p>A concept built to survive Gen Z's scrutiny — every choice, from non-elite protagonist to tagline to product placement, traceable to a research finding or an ethical guardrail, so it holds up in front of both a brand team and the audience.</p>
-            </div>
-            <p class="case-runback">
-              <strong>If I ran it again →</strong>
-              I'd concept-test the tagline with real Gen Z runners before locking it — the whole idea rests on it reading as self-talk, not another performance cue, and only the audience can confirm that.
-            </p>
-          </div>
-        </div>
+  <section class="sec">
+    <div class="idx">06<b>Outcome</b></div>
+    <div class="body">
+      <h2>built to hold up under scrutiny.</h2>
+      <p><strong>Deliverable.</strong> A concept built to survive Gen Z's scrutiny — every choice, from non-elite protagonist to tagline to product placement, traceable to a research finding or an ethical guardrail, so it holds up in front of both a brand team and the audience.</p>
+      <div class="note">
+        <div class="k">If I ran it again →</div>
+        <p>I'd concept-test the tagline with real Gen Z runners before locking it — the whole idea rests on it reading as self-talk, not another performance cue, and only the audience can confirm that.</p>
       </div>
     </div>
   </section>
 
-  <nav class="case-nav" aria-label="Case study navigation">
-    <a href="doki-doki.html">
-      <small>← Previous case study</small>
-      <strong>Doki Doki Juice</strong>
-    </a>
-    <a href="starbucks.html">
-      <small>Next case study →</small>
-      <strong>Starbucks — Bean There, Met You</strong>
-    </a>
-  </nav>
+</main>
 
-  <footer class="foot">
-    <div class="wrap">
-      <div class="foot__top">
-        <div class="foot__big">Let's make<br>something <em>good.</em></div>
-        <div class="foot__col">
-          <h5>Navigate</h5>
-          <a href="work.html">Marketing Work</a>
-          <a href="services.html">Web Design</a>
-          <a href="newsletters.html">Newsletters</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="foot__col">
-          <h5>Elsewhere</h5>
-          <a href="mailto:maxine_isaac@yahoo.com">Email</a>
-          <a href="https://www.instagram.com/grlsmeetwrld/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.linkedin.com/in/maxineisaac" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-      <div class="foot__bottom">
-        <span>© <span data-year>2026</span> Maxine Isaac. Singapore.</span>
-        <span class="foot__colophon">Set in Fraunces &amp; Inter. Hand-coded in HTML &amp; CSS. Singapore, MMXXVI.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<footer class="foot">
+  <a href="index.html#nike">← Back to portfolio</a>
+  <span class="col">© 2026 Maxine Isaac · Nike — Step Into Strength · Spec, 2025</span>
+</footer>
 </body>
 </html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>grlsmeetwrld — Brand &amp; Community · Maxine Isaac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;--ink:#111111;--ink-soft:#6F6A63;--ink-faint:rgba(17,17,17,.32);
+  --rule:#D7D1C8;--sans:'Inter',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;
+  --pink:#E91E68;--rasp:#7B2438;--cream:#F1ECE0;--mx:clamp(20px,5vw,68px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--pink);color:#fff}
+.lab{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.gslash{font-family:Georgia,serif;font-style:italic}
+
+.bar{position:fixed;top:0;left:0;right:0;height:58px;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--mx);background:rgba(241,238,229,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar a{text-decoration:none;color:var(--ink)}
+.bar .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.bar .brand{font-weight:700;font-size:15px}
+
+/* pink hero */
+.hero{background:radial-gradient(135% 135% at 22% 14%,var(--pink),var(--rasp) 72%);color:#FFF1F5;min-height:84vh;
+  display:flex;flex-direction:column;justify-content:center;padding:calc(58px + 40px) var(--mx) 48px;position:relative;overflow:hidden}
+.hero .htag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,241,245,.65)}
+.hero h1{font-weight:800;line-height:.92;letter-spacing:-.025em;text-transform:lowercase;font-size:clamp(38px,8vw,140px);margin-top:16px;max-width:15ch;color:#FFF6EC}
+.hero h1 .u{color:#fff;font-style:italic}
+.hero .tagline{margin-top:22px;font-weight:700;font-size:clamp(16px,2vw,24px);color:#F6EEE0;max-width:30ch;letter-spacing:-.01em}
+.hero .live{margin-top:28px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;color:var(--rasp);background:#FFF1F5;border-radius:100px;padding:14px 24px;transition:transform .3s,box-shadow .3s}
+.hero .live:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(74,8,28,.35)}
+.hero .crow{margin-top:clamp(34px,5vw,52px);display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid rgba(255,241,245,.28);padding-top:18px}
+.hero .crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,241,245,.5)}
+.hero .crow .v{margin-top:7px;font-size:13px;font-weight:500;line-height:1.3}
+.hero .crow .v em{font-style:italic;font-weight:400;color:rgba(255,241,245,.7)}
+@media(max-width:780px){.hero .crow{grid-template-columns:repeat(2,1fr);gap:16px}}
+
+.onthis{position:sticky;top:58px;z-index:70;background:rgba(241,238,229,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
+  display:flex;gap:clamp(14px,2.5vw,34px);padding:14px var(--mx);overflow-x:auto}
+.onthis .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-right:6px;white-space:nowrap}
+.onthis a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);white-space:nowrap;transition:color .3s}
+.onthis a:hover{color:var(--pink)}
+
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(48px,7vw,96px) var(--mx)}
+.sec{display:grid;grid-template-columns:130px 1fr;gap:clamp(20px,4vw,64px);padding:clamp(34px,5vw,58px) 0;border-top:1px solid var(--rule);scroll-margin-top:104px}
+.sec:first-child{border-top:none}
+.sec .idx{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+.sec .idx b{display:block;color:var(--ink);font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
+.sec .body h2{font-weight:800;letter-spacing:-.02em;line-height:1.05;font-size:clamp(24px,3.4vw,44px);text-transform:lowercase;margin-bottom:18px}
+.sec .body p{font-size:clamp(15px,1.5vw,18px);line-height:1.66;color:var(--ink-soft);max-width:62ch}
+.sec .body p+p{margin-top:16px}
+.sec .body p strong{color:var(--ink);font-weight:600}
+@media(max-width:680px){.sec{grid-template-columns:1fr;gap:14px}}
+
+/* scope */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,6vw,80px);margin-top:4px}
+.scope .row{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline;padding:13px 0;border-top:1px solid var(--rule)}
+.scope .row .n{font-family:var(--mono);font-size:12px;color:var(--pink)}
+.scope .row .x{font-size:clamp(15px,1.6vw,18px);font-weight:500;text-transform:lowercase}
+@media(max-width:680px){.scope{grid-template-columns:1fr}}
+
+/* outcome */
+.bignum{display:flex;align-items:baseline;gap:18px;margin:2px 0 18px}
+.bignum b{font-weight:800;font-size:clamp(46px,8vw,104px);letter-spacing:-.03em;line-height:1;color:var(--pink)}
+.bignum span{font-size:14px;color:var(--ink-soft);max-width:26ch}
+.taste{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.taste .im{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:#e7dccd}
+.taste .im img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* live banner */
+.livebar{background:radial-gradient(120% 140% at 18% 10%,var(--pink),var(--rasp) 75%);color:#FFF1F5;text-align:center;padding:clamp(48px,7vw,84px) var(--mx)}
+.livebar h3{font-weight:800;font-size:clamp(26px,4.5vw,52px);letter-spacing:-.02em;text-transform:lowercase;line-height:1;max-width:20ch;margin:0 auto}
+.livebar p{margin:16px auto 0;max-width:46ch;color:rgba(255,241,245,.78);line-height:1.6;font-size:15px}
+.livebar a{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;color:var(--rasp);background:#FFF1F5;border-radius:100px;padding:15px 26px;transition:transform .3s}
+.livebar a:hover{transform:translateY(-3px)}
+
+.casenav{border-top:1px solid var(--ink);padding:30px var(--mx);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center;max-width:1080px;margin:0 auto}
+.casenav a{text-decoration:none;color:var(--ink)}
+.casenav .nx{text-align:right}
+.casenav .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.casenav .tt{font-weight:700;font-size:clamp(18px,2.4vw,28px);margin-top:6px}
+.casenav .home{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.foot{padding:24px var(--mx);font-family:var(--mono);font-size:10px;color:var(--ink-faint);border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="back" href="index.html#grls">← Back to portfolio</a>
+  <a class="brand" href="index.html">Maxine Isaac.</a>
+</div>
+
+<header class="hero">
+  <div class="htag">Case 01 — grlsmeetwrld · Brand &amp; Community · Vol. 01, Bangkok 2026</div>
+  <h1>an editorial brand for women in their twenties who want <span class="u">depth</span>, not networking.</h1>
+  <p class="tagline">Co-founded and art-directed end to end — from the idea to the first sold-out dinner.</p>
+  <a class="live" href="https://maxineisaac.github.io/grlsmeetwrld/" target="_blank" rel="noopener">See the live brand ↗</a>
+  <div class="crow">
+    <div class="c"><div class="k">Client</div><div class="v">grlsmeetwrld <em>(co-founded)</em></div></div>
+    <div class="c"><div class="k">Role</div><div class="v">Co-Founder &amp; Creative Director</div></div>
+    <div class="c"><div class="k">Span</div><div class="v">2026 — Present</div></div>
+    <div class="c"><div class="k">Launch</div><div class="v">Vol. 01 — Bangkok</div></div>
+    <div class="c"><div class="k">Location</div><div class="v">Bangkok · Singapore</div></div>
+  </div>
+</header>
+
+<nav class="onthis">
+  <span class="t">On this page</span>
+  <a href="#context">Context</a>
+  <a href="#role">My role</a>
+  <a href="#built">What I built</a>
+  <a href="#outcome">Outcome</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="sec" id="context">
+    <div class="idx">01<b>Context</b></div>
+    <div class="body">
+      <h2>a gap i kept noticing.</h2>
+      <p>Rooms for women in their twenties tended to feel like transactions — networking, not connection. grlsmeetwrld is my answer: an editorial event series and community brand built on the opposite promise — <strong>depth, not networking</strong>. I co-founded it and led it as creative director, from the first idea to a launch that sold out before a single ad ran.</p>
+      <p>The strategic bet was restraint: one volume at a time, each anchored to a single conversation worth having in person, in a voice that's sparse and lowercase by design — a small refusal to perform.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="role">
+    <div class="idx">02<b>My Role</b></div>
+    <div class="body">
+      <h2>creative director, end to end.</h2>
+      <p>I owned the brand from positioning to production. That meant the <strong>strategy and manifesto</strong>, an <strong>i-D-inspired visual identity</strong> (the <span class="gslash">g</span>/ wordmark, palette and one-word-per-post system), an original <strong>30-card conversation deck</strong> designed to collapse small talk at the table, and the <strong>event itself</strong> — venue, vendors and the experience.</p>
+      <p>The full brand system — palette, voice, the launch feed — lives on the dedicated site. This page is the short version: what the work was, and what it did.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="built">
+    <div class="idx">03<b>What I Built</b></div>
+    <div class="body">
+      <h2>the full scope of work.</h2>
+      <div class="scope">
+        <div class="row"><span class="n">01</span><span class="x">brand strategy</span></div>
+        <div class="row"><span class="n">02</span><span class="x">visual identity</span></div>
+        <div class="row"><span class="n">03</span><span class="x">art direction</span></div>
+        <div class="row"><span class="n">04</span><span class="x">editorial design</span></div>
+        <div class="row"><span class="n">05</span><span class="x">copywriting</span></div>
+        <div class="row"><span class="n">06</span><span class="x">content design</span></div>
+        <div class="row"><span class="n">07</span><span class="x">product design — conversation deck</span></div>
+        <div class="row"><span class="n">08</span><span class="x">event production</span></div>
+        <div class="row"><span class="n">09</span><span class="x">community ops</span></div>
+        <div class="row"><span class="n">10</span><span class="x">growth</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="outcome">
+    <div class="idx">04<b>Outcome</b></div>
+    <div class="body">
+      <h2>sold out before the ads.</h2>
+      <div class="bignum"><b>72 hrs</b><span>The inaugural dinner filled to its 10-seat capacity within 72 hours, from a 25-person invite list.</span></div>
+      <p>The "no" replies became a priority list, warming the audience for Vol. 02 in Singapore. A complete brand — strategy, identity, product and event — built and run end to end.</p>
+      <div class="taste">
+        <div class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol00_prologue_id.png" alt="grlsmeetwrld — hi" loading="lazy"></div>
+        <div class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol01_event_C.png" alt="grlsmeetwrld — first" loading="lazy"></div>
+        <div class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol01_room_said.png" alt="grlsmeetwrld — the room said" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="livebar">
+  <h3>the full brand lives here.</h3>
+  <p>Palette, voice, the conversation deck and the complete launch feed — on the dedicated grlsmeetwrld site.</p>
+  <a href="https://maxineisaac.github.io/grlsmeetwrld/" target="_blank" rel="noopener">Visit grlsmeetwrld ↗</a>
+</section>
+
+<nav class="casenav">
+  <a class="home" href="index.html#campaigns">All campaigns</a>
+  <a class="nx" href="nike.html">
+    <div class="k">Next case study →</div>
+    <div class="tt">Nike — Step Into Strength</div>
+  </a>
+</nav>
+<footer class="foot">© 2026 Maxine Isaac · grlsmeetwrld — Brand &amp; Community · Vol. 01, Bangkok 2026</footer>
+</body>
+</html>
