@@ -119,6 +119,20 @@ a{color:inherit}
 .pir .row .l{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
 .pir .row .t{font-size:clamp(16px,1.9vw,22px);font-weight:500;line-height:1.3;color:var(--ink)}
 @media(max-width:560px){.pir .row{grid-template-columns:1fr;gap:4px}}
+/* visual payoff — feature image + thumbnail strips */
+.feat{margin-top:clamp(26px,3.5vw,40px);max-width:780px}
+.feat .im{display:block;overflow:hidden;border:1px solid var(--rule);background:#ece7da}
+.feat .im img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.feat:hover .im img{transform:scale(1.03)}
+.feat figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,16px);margin-top:clamp(26px,3.5vw,42px)}
+.shots .im{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:#ece7da}
+.shots .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.shots .im:hover img{transform:scale(1.05)}
+.grls-world .shots .im{border-color:rgba(241,236,224,.32);background:rgba(255,255,255,.05)}
+@media(max-width:680px){.shots{grid-template-columns:repeat(2,1fr)}}
+.about-portrait{margin-top:clamp(22px,3vw,34px);width:clamp(150px,17vw,210px);overflow:hidden;border:1px solid var(--rule)}
+.about-portrait img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
 
 /* work index */
 /* selected work — table of contents */
@@ -490,6 +504,7 @@ a{color:inherit}
     <div class="row"><span class="l">Insight</span><span class="t">Authenticity beats image — 72% prioritise it.</span></div>
     <div class="row"><span class="l">Result</span><span class="t">Running as self-talk, not performance.</span></div>
   </div>
+  <figure class="feat r d3"><span class="im"><img src="assets/nike-feature.jpg" alt="Nike — Step Into Strength campaign frames" loading="lazy" onerror="this.closest('.feat').style.display='none'"></span><figcaption>Concept frames — Step Into Strength</figcaption></figure>
   <a class="cmp-cta r d2" href="nike.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Nike <em>(spec)</em></div></div>
@@ -509,6 +524,7 @@ a{color:inherit}
     <div class="row"><span class="l">Insight</span><span class="t">Safety anxiety sells harder than specs.</span></div>
     <div class="row"><span class="l">Result</span><span class="t">A four-pillar campaign built on fear, not features.</span></div>
   </div>
+  <figure class="feat r d3"><span class="im"><img src="assets/uje-spotlight.jpg" alt="Union Jack Elevator — Lift the Future campaign" loading="lazy" onerror="this.closest('.feat').style.display='none'"></span><figcaption>Lift the Future — campaign</figcaption></figure>
   <a class="cmp-cta r d2" href="uje.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Union Jack Elevator</div></div>
@@ -528,6 +544,7 @@ a{color:inherit}
     <div class="row"><span class="l">Insight</span><span class="t">Parents want three days off the screen.</span></div>
     <div class="row"><span class="l">Result</span><span class="t">Insight-led campaign — +10% 2024 sign-ups.</span></div>
   </div>
+  <figure class="feat r d3"><span class="im"><img src="assets/aikiforest-feature.jpg" alt="Aikiforest — brand posters" loading="lazy" onerror="this.closest('.feat').style.display='none'"></span><figcaption>Brand &amp; workshop posters</figcaption></figure>
   <a class="cmp-cta r d2" href="aikiforest.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Aikiforest Aikido</div></div>
@@ -547,6 +564,7 @@ a{color:inherit}
     <div class="row"><span class="l">Insight</span><span class="t">This crowd posts a mug they earned, not a discount.</span></div>
     <div class="row"><span class="l">Result</span><span class="t">A two-day experiential rally — Valentine's, PLQ Plaza.</span></div>
   </div>
+  <figure class="feat r d3"><span class="im"><img src="assets/starbucks-feature.jpg" alt="Starbucks — Bean There, Met You event" loading="lazy" onerror="this.closest('.feat').style.display='none'"></span><figcaption>Bean There, Met You — event</figcaption></figure>
   <a class="cmp-cta r d2" href="starbucks.html">Read the case study →</a>
   <div class="meta-row r d3" style="margin-top:clamp(30px,4vw,48px)">
     <div class="m"><div class="k">Client</div><div class="v">Starbucks Singapore</div></div>
@@ -560,6 +578,7 @@ a{color:inherit}
 <section class="sec tall" id="about" data-nav="about" data-title="About">
   <div class="head r"><span class="ln"></span><span class="lab">About — the path</span></div>
   <h2 class="big-h r d1" style="font-size:clamp(30px,5.5vw,80px)">from singapore to bangkok, the long way round.</h2>
+  <figure class="about-portrait r d2"><img src="assets/portrait.jpg" alt="Maxine Isaac" loading="lazy" onerror="this.closest('.about-portrait').style.display='none'"></figure>
   <div class="tl">
     <div class="node r"><div class="yr">2023 — 2026</div><h4>singapore</h4><div class="where">Temasek Polytechnic — Diploma in Marketing</div><p>Distinction in fundamentals, grounded in consumer psychology. The habit that stuck: research before instinct.</p></div>
     <div class="node r"><div class="yr">2023 →</div><h4>marketing</h4><div class="where">Aikiforest · Union Jack · Starbucks · Doki Doki</div><p>First real brand work. I stopped asking "how do we sell this?" and started asking "why would anyone care?"</p></div>
@@ -681,6 +700,12 @@ a{color:inherit}
       <div class="c"><div class="k">Span</div><div class="v">2026 — Present</div></div>
       <div class="c"><div class="k">Status</div><div class="v">Vol. 01 launching</div></div>
       <div class="c"><div class="k">Location</div><div class="v">Bangkok · Singapore</div></div>
+    </div>
+    <div class="shots r d3">
+      <span class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol00_prologue_id.png" alt="grlsmeetwrld — hi" loading="lazy" onerror="this.parentElement.style.display='none'"></span>
+      <span class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol01_event_C.png" alt="grlsmeetwrld — first" loading="lazy" onerror="this.parentElement.style.display='none'"></span>
+      <span class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol01_saturday.png" alt="grlsmeetwrld — saturday" loading="lazy" onerror="this.parentElement.style.display='none'"></span>
+      <span class="im"><img src="https://maxineisaac.github.io/grlsmeetwrld/grlsmeetwrld_vol01_room_said.png" alt="grlsmeetwrld — the room said" loading="lazy" onerror="this.parentElement.style.display='none'"></span>
     </div>
   </div>
 </section>
