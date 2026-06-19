@@ -396,6 +396,16 @@ a{color:inherit}
 .future .inner{position:relative;z-index:3}
 .future .lab{color:rgba(244,241,234,.55)}
 .future .big-h em,.future h2 .em{color:var(--gold)}
+.future .inner{text-align:left;max-width:920px}
+.fl-title{font-family:'Fraunces',Georgia,serif;font-weight:300;font-style:italic;font-size:clamp(22px,3.4vw,42px);color:#F4F1EA;margin-top:16px;letter-spacing:-.01em;line-height:1.05}
+.future .qs{margin-top:clamp(26px,4vw,46px)}
+.future .q{display:grid;grid-template-columns:clamp(86px,11vw,150px) 1fr;gap:clamp(16px,3vw,40px);align-items:baseline;padding:clamp(16px,2.4vw,26px) 0;border-top:1px solid rgba(244,241,234,.16);transition:border-color .4s}
+.future .q .t{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.future .q .ask{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(20px,3vw,40px);line-height:1.12;color:rgba(244,241,234,.92);transition:color .4s,transform .4s cubic-bezier(.16,1,.3,1)}
+.future .q:hover{border-color:rgba(217,180,107,.5)}
+.future .q:hover .ask{color:#fff;transform:translateX(6px)}
+.fl-foot{margin-top:clamp(24px,3vw,38px);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.45)}
+@media(max-width:600px){.future .q{grid-template-columns:1fr;gap:4px}}
 @media(prefers-reduced-motion:reduce){.future{cursor:auto}}
 
 /* web design */
@@ -732,9 +742,15 @@ a{color:inherit}
     <span class="fw" data-x="50" data-y="14">story</span>
   </div>
   <div class="inner">
-    <div class="head r"><span class="ln" style="background:rgba(237,237,242,.5)"></span><span class="lab">Future Lab</span></div>
-    <h2 class="big-h r d1" style="color:#F4F4F8">where ai meets culture &amp; <span class="em">human behaviour</span>.</h2>
-    <p class="body-c r d2" style="color:rgba(237,237,242,.6)">Move your cursor — it becomes a spotlight. The questions I'm working on next don't sit still: AI used as a studio, not a shortcut; brands read in cultural context; the human insight underneath every campaign — pulling toward each other like a constellation.</p>
+    <div class="head r"><span class="ln" style="background:rgba(244,241,234,.5)"></span><span class="lab">Future Lab</span></div>
+    <h2 class="fl-title r d1">the questions I'm working on next.</h2>
+    <div class="qs">
+      <div class="q r d1"><span class="t">AI</span><span class="ask">Can a brand still sound human?</span></div>
+      <div class="q r d2"><span class="t">Culture</span><span class="ask">Why are sauna socials replacing bars?</span></div>
+      <div class="q r d2"><span class="t">Behaviour</span><span class="ask">Why do people stick with communities but abandon apps?</span></div>
+      <div class="q r d3"><span class="t">Attention</span><span class="ask">Are newsletters becoming luxury media?</span></div>
+    </div>
+    <p class="fl-foot r d3">Move your cursor — the field reacts.</p>
   </div>
 </section>
 
