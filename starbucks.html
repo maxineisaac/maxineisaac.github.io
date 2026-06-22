@@ -94,6 +94,9 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-fo
 .cgal.posters .grid img{height:100%;object-fit:contain}
 .cgal.slides .grid img{aspect-ratio:16/9;object-fit:cover}
 .cgal .grid a:hover img{transform:scale(1.03)}
+.cgal .lead{max-width:680px;font-size:clamp(15px,1.5vw,17px);line-height:1.55;color:var(--ink-soft);margin:-6px 0 clamp(22px,3vw,34px)}
+.cgal.slides figure{margin:0}
+.cgal.slides .cap{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:9px;line-height:1.4}
 @media(max-width:680px){.cgal.posters .grid,.cgal.slides .grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
@@ -206,10 +209,15 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-fo
 </main>
 
 <section class="cgal slides">
-  <div class="h">Selected visuals</div>
+  <div class="h">Inside the event — from plan to experience</div>
+  <p class="lead">How the concept was planned, then staged as something you could walk through, taste and take home — not just a poster on a wall.</p>
   <div class="grid">
-    <a href="assets/starbucks-feature.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-feature.jpg" alt="Event venue — floor plan and 3D visualisations" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
-    <a href="assets/starbucks-event.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-event.jpg" alt="Branded photobooth and Bean There, Met You photostrips" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+    <figure><a href="assets/starbucks-feature.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-feature.jpg" alt="Event venue floor plan and 3D visualisations" loading="lazy" onerror="this.closest('figure').style.display='none'"></a><figcaption class="cap">01 — Floor plan &amp; 3D visualisation of the venue</figcaption></figure>
+    <figure><a href="assets/starbucks-purchasing.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-purchasing.jpg" alt="Purchasing in person at the branded cashier" loading="lazy" onerror="this.closest('figure').style.display='none'"></a><figcaption class="cap">02 — Entry &amp; ticketing, in the Bean There, Met You world</figcaption></figure>
+    <figure><a href="assets/starbucks-station-tasting.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-station-tasting.jpg" alt="Coffee tasting station instruction sheet" loading="lazy" onerror="this.closest('figure').style.display='none'"></a><figcaption class="cap">03 — Coffee-tasting station</figcaption></figure>
+    <figure><a href="assets/starbucks-station-latte.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-station-latte.jpg" alt="Latte art and cup sleeve design station" loading="lazy" onerror="this.closest('figure').style.display='none'"></a><figcaption class="cap">04 — Latte art &amp; design-your-cup-sleeve station</figcaption></figure>
+    <figure><a href="assets/starbucks-event.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-event.jpg" alt="Branded photobooth and Bean There, Met You photostrips" loading="lazy" onerror="this.closest('figure').style.display='none'"></a><figcaption class="cap">05 — Branded photobooth &amp; keepsake photostrips</figcaption></figure>
+    <figure><a href="assets/starbucks-photowall.jpg" target="_blank" rel="noopener"><img src="assets/starbucks-photowall.jpg" alt="Starbucks photowall and gift card giveaway" loading="lazy" onerror="this.closest('figure').style.display='none'"></a><figcaption class="cap">06 — Photowall &amp; community giveaway</figcaption></figure>
   </div>
 </section>
 
