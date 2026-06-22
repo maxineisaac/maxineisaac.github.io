@@ -1,100 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The bottle behind Bangkok's best cocktails is now made in Bangkok — Maxine Isaac</title>
-  <meta name="description" content="A reported feature on Thailand's craft-spirits boom and how Iron Balls, Chalong Bay and a new wave of Bangkok bars are rewriting what 'Thai spirit' tastes like." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The bottle behind Bangkok's best cocktails is now made in Bangkok · Maxine Isaac</title>
+<meta name="description" content="A reported feature on Thailand's craft-spirits boom and how Iron Balls, Chalong Bay and a new wave of Bangkok bars are rewriting what 'Thai spirit' tastes like." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;--ink:#111111;--read:#2f2c26;--ink-soft:#6F6A63;--ink-faint:rgba(17,17,17,.32);
+  --rule:rgba(22,21,15,.15);--sans:'Inter',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;--serif:'Fraunces',Georgia,serif;
+  --mx:clamp(20px,5vw,68px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+.bar{position:fixed;top:0;left:0;right:0;height:58px;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--mx);background:rgba(241,238,229,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar a{text-decoration:none;color:var(--ink)}
+.bar .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.bar .brand{font-weight:700;font-size:15px}
+.ahero{max-width:880px;margin:0 auto;padding:calc(58px + 54px) var(--mx) clamp(28px,4vw,46px)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.ahero h1{font-weight:800;letter-spacing:-.022em;line-height:1.03;font-size:clamp(34px,6.4vw,70px);margin-top:20px;max-width:17ch}
+.ahero h1 em{font-family:var(--serif);font-style:italic;font-weight:400}
+.ahero .dek{margin-top:24px;font-size:clamp(18px,2vw,24px);line-height:1.45;color:var(--ink-soft);max-width:46ch}
+.ahero .meta{margin-top:28px;border-top:1px solid var(--rule);padding-top:16px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:flex;gap:10px;flex-wrap:wrap}
+.ahero .meta span::after{content:"·";margin-left:10px;color:var(--ink-faint)}
+.ahero .meta span:last-child::after{content:""}
+.read{max-width:660px;margin:0 auto;padding:clamp(8px,2vw,18px) var(--mx) clamp(40px,6vw,80px)}
+.read p{font-size:clamp(16px,1.55vw,19px);line-height:1.74;color:var(--read)}
+.read p+p{margin-top:20px}
+.read p.lede{font-size:clamp(19px,2vw,23px);line-height:1.5;color:var(--ink);font-weight:500}
+.read p strong{color:var(--ink);font-weight:600}
+.read h2{font-weight:800;letter-spacing:-.015em;line-height:1.12;font-size:clamp(21px,2.6vw,30px);margin:clamp(34px,5vw,52px) 0 16px}
+.read .pq{margin:clamp(38px,6vw,68px) 0;text-align:center}
+.read .pq p{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink);font-size:clamp(24px,4vw,40px);line-height:1.18;max-width:20ch;margin:0 auto}
+.pn{max-width:880px;margin:0 auto;padding:clamp(20px,3vw,30px) var(--mx) clamp(40px,6vw,70px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pn a{text-decoration:none;color:var(--ink);border:1px solid var(--rule);padding:20px;display:block;transition:background .3s}
+.pn a:hover{background:#ece7da}
+.pn a.nx{text-align:right}
+.pn .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.pn .tt{margin-top:10px;font-weight:600;font-size:15px;line-height:1.3}
+@media(max-width:600px){.pn{grid-template-columns:1fr}.pn a.nx{text-align:left}}
+.foot{border-top:1px solid var(--ink);padding:34px var(--mx);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+.foot a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+.foot .col{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-faint)}
+</style>
 </head>
-<body data-page="writing">
+<body>
+<div class="bar">
+  <a class="back" href="index.html#thoughts">← Back to portfolio</a>
+  <a class="brand" href="index.html">Maxine Isaac.</a>
+</div>
 
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="index.html">Maxine Isaac<b>.</b></a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="work.html">Work</a>
-        <a href="services.html">Web Design</a>
-        <a href="newsletters.html">Newsletters</a>
-        <a href="writing.html">Writing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="ahero">
+  <div class="kicker">Dispatch 03 — Craft spirits · Food &amp; drink</div>
+  <h1>The bottle behind Bangkok's best cocktails is now made in <em>Bangkok.</em></h1>
+  <p class="dek">Thailand's craft-spirits boom has a flagship — a pineapple-and-coconut gin distilled in the city itself — and the bars are pouring local with new swagger.</p>
+  <div class="meta"><span>2026</span><span>Bangkok</span><span>Original reporting</span><span>Unpublished</span></div>
+</header>
 
-  <div class="chip chip--bl"><span class="led" aria-hidden="true"></span><span><span data-clock>--:-- SGT</span> · 1°21′N 103°49′E</span></div>
-  <div class="chip chip--br">© <span data-year>2026</span> Maxine Isaac</div>
+<article class="read">
+  <p class="lede">A decade ago, a "proper" gin in a serious Bangkok bar meant something flown in from somewhere colder. Today the most interesting bottle on the back bar was very likely born across town.</p>
+  <p>Its name is Iron Balls, and it is Thailand's first craft gin — distilled in Bangkok by the Australian designer Ashley Sutton, who in 2015 prised loose the first new distillery licence the country had granted in thirty-one years.</p>
+  <p>What makes it more than a novelty is what is inside. Rather than the usual neutral grain spirit, Iron Balls is built on a base distilled from pineapple and coconut, both grown in Thailand, then layered with hillside ginger, lemongrass and juniper. In 2019 it beat a field of international rivals to be named best gin in the innovation category at a Paris spirits fair. A local curiosity it is not.</p>
 
-  <!-- ===== ARTICLE HERO ===== -->
-  <section class="page-hero">
-    <div class="wrap">
-      <span class="marker">03 · Craft spirits · Food &amp; drink</span>
-      <h1>The bottle behind Bangkok's best cocktails is now made in <em>Bangkok.</em></h1>
-      <p class="page-hero__lede">Thailand's craft-spirits boom has a flagship — a pineapple-and-coconut gin distilled in the city itself — and the bars are pouring local with new swagger.</p>
-    </div>
-  </section>
+  <h2>A gin and a rum rewrite the rules</h2>
+  <p>Iron Balls is not alone. Down south, Chalong Bay has been quietly making the case for Thai rum since 2012, distilling an agricole-style white spirit from 100% hand-cut Thai sugarcane and infusing it with lemongrass, cinnamon and Thai sweet basil — work that has collected gold at the San Francisco World Spirits Competition. Between them, a Bangkok gin and a Phuket rum have dragged the phrase "Thai spirit" a long way from the beach-bucket bottle of SangSom it used to conjure.</p>
 
-  <!-- ===== ARTICLE BODY ===== -->
-  <article class="section rule-top article-block">
-    <div class="wrap article">
-      <div class="article__body">
-        <p>A decade ago, a "proper" gin in a serious Bangkok bar meant something flown in from somewhere colder. Today the most interesting bottle on the back bar was very likely born across town. Its name is Iron Balls, and it is Thailand's first craft gin — distilled in Bangkok by the Australian designer Ashley Sutton, who in 2015 prised loose the first new distillery licence the country had granted in thirty-one years.</p>
-        <p>What makes it more than a novelty is what is inside. Rather than the usual neutral grain spirit, Iron Balls is built on a base distilled from pineapple and coconut, both grown in Thailand, then layered with hillside ginger, lemongrass and juniper. In 2019 it beat a field of international rivals to be named best gin in the innovation category at a Paris spirits fair. A local curiosity it is not.</p>
+  <h2>The raw material for a bar boom</h2>
+  <p>This homegrown supply is the quiet engine behind Soi Nana, the Chinatown lane that became a global drinking destination in a few short years. Teens of Thailand, the tiny gin bar that helped put the street on the map, argued early that Thai gin belonged in a glass you would happily pay for. Tep Bar pours local spirits alongside Thai tapas and live music; Ba Hao spins retro Chinese nostalgia into its cocktails; Independence Bar takes a broad, curious view of what a Thai drink can even be. None of them treat "local" as a marketing sticker. They treat it as a starting point.</p>
 
-        <h3>A gin and a rum rewrite the rules</h3>
-        <p>Iron Balls is not alone. Down south, Chalong Bay has been quietly making the case for Thai rum since 2012, distilling an agricole-style white spirit from 100% hand-cut Thai sugarcane and infusing it with lemongrass, cinnamon and Thai sweet basil — work that has collected gold at the San Francisco World Spirits Competition. Between them, a Bangkok gin and a Phuket rum have dragged the phrase "Thai spirit" a long way from the beach-bucket bottle of SangSom it used to conjure.</p>
+  <div class="pq"><p>Why pour London juniper in a city built on lemongrass and makrut lime?</p></div>
 
-        <h3>The raw material for a bar boom</h3>
-        <p>This homegrown supply is the quiet engine behind Soi Nana, the Chinatown lane that became a global drinking destination in a few short years. Teens of Thailand, the tiny gin bar that helped put the street on the map, argued early that Thai gin belonged in a glass you would happily pay for. Tep Bar pours local spirits alongside Thai tapas and live music; Ba Hao spins retro Chinese nostalgia into its cocktails; Independence Bar takes a broad, curious view of what a Thai drink can even be. None of them treat "local" as a marketing sticker. They treat it as a starting point.</p>
-        <p>The logic is hard to argue with once you taste it. A generation of Bangkok bartenders has trained abroad, won things, and come home with nothing left to prove — and the botanicals were here all along. Why pour London juniper in a city built on lemongrass, galangal and makrut lime?</p>
-        <p>You can get a competent imported gin and tonic in any airport lounge on earth. A lemongrass-laced martini, built on a gin distilled a few neighbourhoods over, you can still only get here — and Bangkok has finally worked out that this is a selling point, not an apology.</p>
-      </div>
-    </div>
-  </article>
+  <p>The logic is hard to argue with once you taste it. A generation of Bangkok bartenders has trained abroad, won things, and come home with nothing left to prove — and the botanicals were here all along. Why pour London juniper in a city built on lemongrass, galangal and makrut lime?</p>
+  <p>You can get a competent imported gin and tonic in any airport lounge on earth. A lemongrass-laced martini, built on a gin distilled a few neighbourhoods over, you can still only get here — and Bangkok has finally worked out that this is a selling point, not an apology.</p>
+</article>
 
-  <!-- ===== PREV / NEXT ===== -->
-  <nav class="case-nav" aria-label="Article navigation">
-    <a href="writing-song-wat.html">
-      <small>← Previous piece</small>
-      <strong>On Song Wat, the makers are saving the street</strong>
-    </a>
-    <a href="writing.html">
-      <small>Back to writing →</small>
-      <strong>Index</strong>
-    </a>
-  </nav>
+<nav class="pn">
+  <a class="hm" href="writing-song-wat.html"><div class="k">← Previous piece</div><div class="tt">On Song Wat, the makers are saving the street</div></a>
+  <a class="nx" href="writing.html"><div class="k">Back to writing →</div><div class="tt">Index — Dispatches</div></a>
+</nav>
 
-  <footer class="foot">
-    <div class="wrap">
-      <div class="foot__top">
-        <div class="foot__big">Let's make<br>something <em>good.</em></div>
-        <div class="foot__col">
-          <h5>Navigate</h5>
-          <a href="work.html">Marketing Work</a>
-          <a href="services.html">Web Design</a>
-          <a href="newsletters.html">Newsletters</a>
-          <a href="writing.html">Writing</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="foot__col">
-          <h5>Elsewhere</h5>
-          <a href="mailto:maxine_isaac@yahoo.com">Email</a>
-          <a href="https://www.instagram.com/grlsmeetwrld/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.linkedin.com/in/maxineisaac" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-      <div class="foot__bottom">
-        <span>© <span data-year>2026</span> Maxine Isaac. Singapore.</span>
-        <span class="foot__colophon">Set in Fraunces &amp; Inter. Hand-coded in HTML &amp; CSS. Singapore, MMXXVI.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<footer class="foot">
+  <a href="index.html#thoughts">← Back to portfolio</a>
+  <span class="col">© 2026 Maxine Isaac · Dispatches · Bangkok Bureau</span>
+</footer>
 </body>
 </html>

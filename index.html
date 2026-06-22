@@ -312,10 +312,15 @@ a{color:inherit}
 .arc-exp .photo span{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .arc-exp .excerpt{font-size:clamp(15px,1.6vw,18px);line-height:1.62;color:var(--ink-soft)}
 .arc-exp .excerpt .src{display:block;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.arc-go{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px;text-decoration:none;transition:opacity .3s}
+.arc-go:hover{opacity:.6}
+.arc-allwrap{display:flex;justify-content:flex-end;padding-top:20px}
+.arc-all{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity .3s}
+.arc-all:hover{opacity:.6}
 .arc:hover,.arc:focus-within{outline:none}
 .arc:hover h3,.arc:focus-within h3{transform:translateX(10px)}
 .arc:hover .cat,.arc:focus-within .cat{color:var(--ink)}
-.arc:hover .arc-exp,.arc:focus-within .arc-exp{max-height:320px;opacity:1}
+.arc:hover .arc-exp,.arc:focus-within .arc-exp{max-height:440px;opacity:1}
 .ph-night{background-image:linear-gradient(135deg,#1a2b4a,#070d1c)}
 .ph-river{background-image:linear-gradient(135deg,#7a4a26,#2a160a)}
 .ph-drink{background-image:linear-gradient(135deg,#9c6a2a,#3a230c)}
@@ -630,7 +635,7 @@ a{color:inherit}
       </div>
       <div class="arc-exp"><div class="inner">
         <div class="photo" style="background:#0a1322 url('assets/dispatch-icebath.jpg') center/cover"></div>
-        <p class="excerpt">A new generation of Bangkok night-owls is trading the bar for the bath — cold plunges, breathwork and 6am company. I spent an evening at the club turning sobriety into the city's most wanted reservation, on record with the people building it.<span class="src">Original reporting · The Ice House at FIG</span></p>
+        <div class="txtcol"><p class="excerpt">A new generation of Bangkok night-owls is trading the bar for the bath — cold plunges, breathwork and 6am company. I spent an evening at the club turning sobriety into the city's most wanted reservation, on record with the people building it.<span class="src">Original reporting · The Ice House at FIG</span></p><a class="arc-go" href="writing-ice-baths.html">Read the full piece →</a></div>
       </div></div>
     </article>
     <article class="arc" tabindex="0">
@@ -641,7 +646,7 @@ a{color:inherit}
       </div>
       <div class="arc-exp"><div class="inner">
         <div class="photo ph-river"><span>Placeholder — your photo here</span></div>
-        <p class="excerpt">A century-old riverside trading street had been left to rust. Then the makers moved in — roasters, designers, a new kind of shophouse. A walk down Song Wat with the operators rewriting what the lane is for.<span class="src">Original reporting · Song Wat</span></p>
+        <div class="txtcol"><p class="excerpt">A century-old riverside trading street had been left to rust. Then the makers moved in — roasters, designers, a new kind of shophouse. A walk down Song Wat with the operators rewriting what the lane is for.<span class="src">Original reporting · Song Wat</span></p><a class="arc-go" href="writing-song-wat.html">Read the full piece →</a></div>
       </div></div>
     </article>
     <article class="arc" tabindex="0">
@@ -652,10 +657,11 @@ a{color:inherit}
       </div>
       <div class="arc-exp"><div class="inner">
         <div class="photo ph-drink"><span>Placeholder — your photo here</span></div>
-        <p class="excerpt">The spirit pouring across the city's best bars used to be imported. Now it's distilled a few districts away. I traced one bottle from still to shaker, on record with the bartenders who switched.<span class="src">Original reporting · Socials Sukhumvit</span></p>
+        <div class="txtcol"><p class="excerpt">The spirit pouring across the city's best bars used to be imported. Now it's distilled a few districts away. I traced one bottle from still to shaker, on record with the bartenders who switched.<span class="src">Original reporting · Socials Sukhumvit</span></p><a class="arc-go" href="writing-iron-balls.html">Read the full piece →</a></div>
       </div></div>
     </article>
   </div>
+  <div class="arc-allwrap"><a class="arc-all" href="writing.html">See all writing →</a></div>
 </section>
 
 <!-- NEWSLETTERS -->

@@ -1,105 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bangkok's coolest new night out is stone-cold sober — and freezing — Maxine Isaac</title>
-  <meta name="description" content="The city's social life is migrating from the rooftop bar to the ice bath. A reported feature on Bangkok's sauna-social scene." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bangkok's coolest new night out is stone-cold sober · Maxine Isaac</title>
+<meta name="description" content="The city's social life is migrating from the rooftop bar to the ice bath. A reported feature on Bangkok's sauna-social scene." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;--ink:#111111;--read:#2f2c26;--ink-soft:#6F6A63;--ink-faint:rgba(17,17,17,.32);
+  --rule:rgba(22,21,15,.15);--sans:'Inter',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;--serif:'Fraunces',Georgia,serif;
+  --mx:clamp(20px,5vw,68px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;height:58px;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--mx);background:rgba(241,238,229,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar a{text-decoration:none;color:var(--ink)}
+.bar .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.bar .brand{font-weight:700;font-size:15px}
+
+/* article hero */
+.ahero{max-width:880px;margin:0 auto;padding:calc(58px + 54px) var(--mx) clamp(28px,4vw,46px)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.ahero h1{font-weight:800;letter-spacing:-.022em;line-height:1.03;font-size:clamp(34px,6.4vw,70px);margin-top:20px;max-width:17ch}
+.ahero h1 em{font-family:var(--serif);font-style:italic;font-weight:400}
+.ahero .dek{margin-top:24px;font-size:clamp(18px,2vw,24px);line-height:1.45;color:var(--ink-soft);max-width:46ch}
+.ahero .meta{margin-top:28px;border-top:1px solid var(--rule);padding-top:16px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:flex;gap:10px;flex-wrap:wrap}
+.ahero .meta span::after{content:"·";margin-left:10px;color:var(--ink-faint)}
+.ahero .meta span:last-child::after{content:""}
+
+/* feature image */
+.fimg{max-width:1080px;margin:0 auto;padding:0 var(--mx) clamp(20px,3vw,36px)}
+.fimg span{display:block;overflow:hidden;border:1px solid var(--rule);background:#ece7da}
+.fimg img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.fimg figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:9px}
+
+/* reading column */
+.read{max-width:660px;margin:0 auto;padding:clamp(8px,2vw,18px) var(--mx) clamp(40px,6vw,80px)}
+.read p{font-size:clamp(16px,1.55vw,19px);line-height:1.74;color:var(--read)}
+.read p+p{margin-top:20px}
+.read p.lede{font-size:clamp(19px,2vw,23px);line-height:1.5;color:var(--ink);font-weight:500}
+.read p strong{color:var(--ink);font-weight:600}
+.read h2{font-weight:800;letter-spacing:-.015em;line-height:1.12;font-size:clamp(21px,2.6vw,30px);
+  margin:clamp(34px,5vw,52px) 0 16px}
+.read .pq{margin:clamp(38px,6vw,68px) 0;text-align:center}
+.read .pq p{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink);
+  font-size:clamp(24px,4vw,40px);line-height:1.18;max-width:18ch;margin:0 auto}
+.read blockquote{margin:26px 0;padding-left:20px;border-left:2px solid var(--ink);font-style:italic;color:var(--ink);line-height:1.55}
+.read blockquote cite{display:block;margin-top:8px;font-style:normal;font-family:var(--mono);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* prev / next */
+.pn{max-width:880px;margin:0 auto;padding:clamp(20px,3vw,30px) var(--mx) clamp(40px,6vw,70px);
+  display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pn a{text-decoration:none;color:var(--ink);border:1px solid var(--rule);padding:20px;display:block;transition:background .3s}
+.pn a:hover{background:#ece7da}
+.pn a.nx{text-align:right}
+.pn .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.pn .tt{margin-top:10px;font-weight:600;font-size:15px;line-height:1.3}
+@media(max-width:600px){.pn{grid-template-columns:1fr}.pn a.nx{text-align:left}}
+
+/* foot */
+.foot{border-top:1px solid var(--ink);padding:34px var(--mx);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+.foot a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:3px}
+.foot .col{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-faint)}
+</style>
 </head>
-<body data-page="writing">
+<body>
+<div class="bar">
+  <a class="back" href="index.html#thoughts">← Back to portfolio</a>
+  <a class="brand" href="index.html">Maxine Isaac.</a>
+</div>
 
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="index.html">Maxine Isaac<b>.</b></a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="work.html">Work</a>
-        <a href="services.html">Web Design</a>
-        <a href="newsletters.html">Newsletters</a>
-        <a href="writing.html">Writing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="ahero">
+  <div class="kicker">Dispatch 01 — Nightlife · Reported feature</div>
+  <h1>Bangkok's coolest new night out is stone-cold sober — and <em>freezing.</em></h1>
+  <p class="dek">The city's social life is migrating from the rooftop bar to the ice bath — where the bartender pulls your espresso, then talks you into a 4°C plunge.</p>
+  <div class="meta"><span>2025</span><span>Bangkok</span><span>Original reporting</span><span>Unpublished</span></div>
+</header>
 
-  <div class="chip chip--bl"><span class="led" aria-hidden="true"></span><span><span data-clock>--:-- SGT</span> · 1°21′N 103°49′E</span></div>
-  <div class="chip chip--br">© <span data-year>2026</span> Maxine Isaac</div>
+<figure class="fimg"><span><img src="assets/dispatch-icebath.jpg" alt="Bangkok ice-bath social scene" loading="lazy" onerror="this.closest('.fimg').style.display='none'"></span><figcaption>The Ice House at FIG — Bangkok's sauna-social scene</figcaption></figure>
 
-  <!-- ===== ARTICLE HERO ===== -->
-  <section class="page-hero">
-    <div class="wrap">
-      <span class="marker">01 · Nightlife · Reported feature</span>
-      <h1>Bangkok's coolest new night out is stone-cold sober — and <em>freezing.</em></h1>
-      <p class="page-hero__lede">Forget the rooftop bar. The city's social life is migrating to the ice bath — where the bartender pulls your espresso, then talks you into a 4°C plunge.</p>
-    </div>
-  </section>
+<article class="read">
+  <p class="lede">At Socials on Sukhumvit, you order a cocktail downstairs and then climb the stairs to the sauna and the ice bath, where the same staff who mixed your drink walk you, quite cheerfully, into a tub of ice.</p>
+  <p>From negroni to guided first plunge under one roof — and nobody finds this strange. This is what a night out increasingly looks like in Bangkok: not a bar crawl but a sauna session, not a hangover but a cold shock, and a room full of strangers who actually talk to each other.</p>
+  <p>The ice bath has gone from fringe biohacker ritual to the city's most unlikely social scene — and the venues are multiplying to match. The Ice Bath Club opens next to Nana BTS on July 10, promising a large social sauna, a hot magnesium-salt bath and signature ice showers, pitched explicitly as somewhere to meet people. New cold-plunge spots are opening every few months. That is not a fad's pace. That is a scene's.</p>
+  <blockquote>"There's definitely been a shift away from late-night bar sessions and towards experiences that feel good for both your health and your social life. Cold plunges and saunas bring people together in a different way — it's community, connection, and doing something challenging with like-minded people."<cite>Emily Hagelauer · The Ice Bath Club</cite></blockquote>
 
-  <!-- ===== ARTICLE BODY ===== -->
-  <article class="section rule-top article-block">
-    <div class="wrap article">
-      <div class="article__body">
-        <p>At Socials on Sukhumvit, you order a cocktail downstairs and then climb the stairs to the sauna and the ice bath, where the same staff who mixed your drink walk you, quite cheerfully, into a tub of ice. From negroni to guided first plunge under one roof — and nobody finds this strange. This is what a night out increasingly looks like in Bangkok: not a bar crawl but a sauna session, not a hangover but a cold shock, and a room full of strangers who actually talk to each other.</p>
-        <p>The ice bath has gone from fringe biohacker ritual to the city's most unlikely social scene — and the venues are multiplying to match. The Ice Bath Club opens next to Nana BTS on July 10, promising a large social sauna, a hot magnesium-salt bath and signature ice showers, pitched explicitly as somewhere to meet people. New cold-plunge spots are opening every few months. That is not a fad's pace. That is a scene's.</p>
-        <p>"There's definitely been a shift away from late-night bar sessions and towards experiences that feel good for both your health and your social life," says Emily Hagelauer, head of community and partnerships at The Ice Bath Club. "Cold plunges and saunas bring people together in a different way — it's community, connection, and doing something challenging with like-minded people."</p>
+  <h2>From a condo tub to a movement</h2>
+  <p>It started small. Ice House, one of the originals, began with a couple of plastic tubs, ice hauled from 7-Eleven, and a handful of friends on a condo rooftop. Today it runs five baths kept at a punishing 4–5°C and hosts a regular Saturday Socials. RECHILL built its whole identity around the idea that strangers will become a crew somewhere around the second round of sauna. The Bangkok Ice Baths community has been gathering for more than three years, rotating meetups through Thonglor, Onnut and Ari. Baan, set in a tropical garden out west, charges 490 baht for a session and keeps its plunge anywhere from 3 to 10°C, depending on your nerve.</p>
 
-        <h3>From a condo tub to a movement</h3>
-        <p>It started small. Ice House, one of the originals, began with a couple of plastic tubs, ice hauled from 7-Eleven, and a handful of friends on a condo rooftop. Today it runs five baths kept at a punishing 4–5°C and hosts a regular Saturday Socials. RECHILL built its whole identity around the idea that strangers will become a crew somewhere around the second round of sauna. The Bangkok Ice Baths community has been gathering for more than three years, rotating meetups through Thonglor, Onnut and Ari. Baan, set in a tropical garden out west, charges 490 baht for a session and keeps its plunge anywhere from 3 to 10°C, depending on your nerve.</p>
+  <h2>Why a sweltering city fell for the cold</h2>
+  <p>Part of it is the global cold-plunge wave finally cresting here — the circulation, the recovery, the dopamine hit that is genuinely hard to argue with once you have felt it. But part of it is gloriously local. In a city that bakes at thirty-five in the shade, cold is the real luxury, and there is a particular thrill in choosing it, scheduling it, paying for it.</p>
+  <p>And then there is the social maths. Bangkok's nightlife has always run on heat, booze and 2am — wonderful, until it is not. The sauna social offers the opposite: a sober, daytime way to meet people that leaves you glowing instead of wrecked. It helps that the plunge does the small talk for you. Nothing bonds two strangers faster than gasping through the same ninety seconds at 4°C.</p>
 
-        <h3>Why a sweltering city fell for the cold</h3>
-        <p>Part of it is the global cold-plunge wave finally cresting here — the circulation, the recovery, the dopamine hit that is genuinely hard to argue with once you have felt it. But part of it is gloriously local. In a city that bakes at thirty-five in the shade, cold is the real luxury, and there is a particular thrill in choosing it, scheduling it, paying for it.</p>
-        <p>And then there is the social maths. Bangkok's nightlife has always run on heat, booze and 2am — wonderful, until it is not. The sauna social offers the opposite: a sober, daytime way to meet people that leaves you glowing instead of wrecked. It helps that the plunge does the small talk for you. Nothing bonds two strangers faster than gasping through the same ninety seconds at 4°C.</p>
-        <p>"People are looking for healthier ways to connect," says Bunyesa "May" Ngoenthong, owner of Socials Sukhumvit. "The ice bath and sauna create a shared experience that brings people together naturally — you leave feeling refreshed, energized, and often having made a new friend."</p>
+  <div class="pq"><p>Nothing bonds two strangers faster than ninety seconds at 4°C.</p></div>
 
-        <h3>What it actually feels like</h3>
-        <p>Brutal, then wonderful. The first thirty seconds are a small argument with your own nervous system — every instinct screaming to get out — and then something settles. Your breathing slows. The noise in your head goes quiet. You climb into the sauna and your whole body sighs. By the third round you understand why people keep coming back at 7am before work as though it were coffee, and why they keep swapping numbers on the way out.</p>
-        <p>The rooftop bar is not dead. But Bangkok has quietly invented a second kind of night out — one you leave clear-eyed, slightly euphoric, and oddly full of new friends.</p>
-      </div>
-    </div>
-  </article>
+  <blockquote>"People are looking for healthier ways to connect. The ice bath and sauna create a shared experience that brings people together naturally — you leave feeling refreshed, energized, and often having made a new friend."<cite>Bunyesa "May" Ngoenthong · owner, Socials Sukhumvit</cite></blockquote>
 
-  <!-- ===== PREV / NEXT ===== -->
-  <nav class="case-nav" aria-label="Article navigation">
-    <a href="writing.html">
-      <small>← All writing</small>
-      <strong>Index</strong>
-    </a>
-    <a href="writing-song-wat.html">
-      <small>Next piece →</small>
-      <strong>On Song Wat, the makers are saving the street</strong>
-    </a>
-  </nav>
+  <h2>What it actually feels like</h2>
+  <p>Brutal, then wonderful. The first thirty seconds are a small argument with your own nervous system — every instinct screaming to get out — and then something settles. Your breathing slows. The noise in your head goes quiet. You climb into the sauna and your whole body sighs. By the third round you understand why people keep coming back at 7am before work as though it were coffee, and why they keep swapping numbers on the way out.</p>
+  <p>The rooftop bar is not dead. But Bangkok has quietly invented a second kind of night out — one you leave clear-eyed, slightly euphoric, and oddly full of new friends.</p>
+</article>
 
-  <footer class="foot">
-    <div class="wrap">
-      <div class="foot__top">
-        <div class="foot__big">Let's make<br>something <em>good.</em></div>
-        <div class="foot__col">
-          <h5>Navigate</h5>
-          <a href="work.html">Marketing Work</a>
-          <a href="services.html">Web Design</a>
-          <a href="newsletters.html">Newsletters</a>
-          <a href="writing.html">Writing</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="foot__col">
-          <h5>Elsewhere</h5>
-          <a href="mailto:maxine_isaac@yahoo.com">Email</a>
-          <a href="https://www.instagram.com/grlsmeetwrld/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.linkedin.com/in/maxineisaac" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-      <div class="foot__bottom">
-        <span>© <span data-year>2026</span> Maxine Isaac. Singapore.</span>
-        <span class="foot__colophon">Set in Fraunces &amp; Inter. Hand-coded in HTML &amp; CSS. Singapore, MMXXVI.</span>
-      </div>
-    </div>
-  </footer>
+<nav class="pn">
+  <a class="hm" href="writing.html"><div class="k">← All writing</div><div class="tt">Index — Dispatches</div></a>
+  <a class="nx" href="writing-song-wat.html"><div class="k">Next piece →</div><div class="tt">On Song Wat, the makers are saving the street</div></a>
+</nav>
 
-  <script src="script.js"></script>
+<footer class="foot">
+  <a href="index.html#thoughts">← Back to portfolio</a>
+  <span class="col">© 2026 Maxine Isaac · Dispatches · Bangkok Bureau</span>
+</footer>
 </body>
 </html>
